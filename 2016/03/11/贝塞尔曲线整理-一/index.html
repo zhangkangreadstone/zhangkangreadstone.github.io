@@ -4,17 +4,25 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>Archives: 2016 | ZhangKangReadStone</title>
+  <title>贝塞尔曲线整理(一) | ZhangKangReadStone</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description">
-<meta property="og:type" content="website">
-<meta property="og:title" content="ZhangKangReadStone">
-<meta property="og:url" content="http://yoursite.com/archives/2016/index.html">
+  <meta name="description" content="自定义视图的时候可以通过drawRect方法绘制想要的曲线,但是这个方法要尽量少用，在需要更新绘制的时候可以通过[self setNeedsDisplay];来重新绘制，最好在自定义视图类内部完成.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="贝塞尔曲线整理(一)">
+<meta property="og:url" content="http://yoursite.com/2016/03/11/贝塞尔曲线整理-一/index.html">
 <meta property="og:site_name" content="ZhangKangReadStone">
-<meta property="og:description">
+<meta property="og:description" content="自定义视图的时候可以通过drawRect方法绘制想要的曲线,但是这个方法要尽量少用，在需要更新绘制的时候可以通过[self setNeedsDisplay];来重新绘制，最好在自定义视图类内部完成.">
+<meta property="og:image" content="http://7xrqmg.com1.z0.glb.clouddn.com/%E8%B4%9D%E5%A1%9E%E5%B0%94%E6%9B%B2%E7%BA%BF%E4%B8%801.png">
+<meta property="og:image" content="http://7xrqmg.com1.z0.glb.clouddn.com/%E8%B4%9D%E5%A1%9E%E5%B0%94%E6%9B%B2%E7%BA%BF%E4%B8%802.png">
+<meta property="og:image" content="http://7xrqmg.com1.z0.glb.clouddn.com/%E8%B4%9D%E5%A1%9E%E5%B0%94%E6%9B%B2%E7%BA%BF%E4%B8%803.png">
+<meta property="og:image" content="http://7xrqmg.com1.z0.glb.clouddn.com/%E8%B4%9D%E5%A1%9E%E5%B0%94%E6%9B%B2%E7%BA%BF%E4%B8%804.png">
+<meta property="og:image" content="http://7xrqmg.com1.z0.glb.clouddn.com/%E8%B4%9D%E5%A1%9E%E5%B0%94%E6%9B%B2%E7%BA%BF%E4%B8%805.png">
+<meta property="og:image" content="http://7xrqmg.com1.z0.glb.clouddn.com/%E8%B4%9D%E5%A1%9E%E5%B0%94%E6%9B%B2%E7%BA%BF%E4%B8%806.PNG">
+<meta property="og:updated_time" content="2016-03-11T07:40:52.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ZhangKangReadStone">
-<meta name="twitter:description">
+<meta name="twitter:title" content="贝塞尔曲线整理(一)">
+<meta name="twitter:description" content="自定义视图的时候可以通过drawRect方法绘制想要的曲线,但是这个方法要尽量少用，在需要更新绘制的时候可以通过[self setNeedsDisplay];来重新绘制，最好在自定义视图类内部完成.">
+<meta name="twitter:image" content="http://7xrqmg.com1.z0.glb.clouddn.com/%E8%B4%9D%E5%A1%9E%E5%B0%94%E6%9B%B2%E7%BA%BF%E4%B8%801.png">
   
     <link rel="alternative" href="/atom.xml" title="ZhangKangReadStone" type="application/atom+xml">
   
@@ -200,76 +208,107 @@
 	</div>
 </nav>
 
-      <div class="body-wrap">
+      <div class="body-wrap"><article id="post-贝塞尔曲线整理-一" class="article article-type-post" itemscope itemprop="blogPost">
   
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/03/11/贝塞尔曲线整理-一/" class="archive-article-date">
-  	<time datetime="2016-03-11T07:34:09.000Z" itemprop="datePublished">Mar 11</time>
+    <div class="article-meta">
+      <a href="/2016/03/11/贝塞尔曲线整理-一/" class="article-date">
+  	<time datetime="2016-03-11T07:34:09.000Z" itemprop="datePublished">2016-03-11</time>
 </a>
-        </div>
-    	 
+    </div>
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/03/11/贝塞尔曲线整理-一/">贝塞尔曲线整理(一)</a>
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      贝塞尔曲线整理(一)
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+        
 
-        </div>
         <div class="clearfix"></div>
-    </header>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li>自定义视图的时候可以通过drawRect方法绘制想要的曲线,但是这个方法要尽量少用，<br>在需要更新绘制的时候可以通过[self setNeedsDisplay];来重新绘制，最好在自定义视图类内部完成.<br><img src="http://7xrqmg.com1.z0.glb.clouddn.com/%E8%B4%9D%E5%A1%9E%E5%B0%94%E6%9B%B2%E7%BA%BF%E4%B8%801.png" alt="11"><br><img src="http://7xrqmg.com1.z0.glb.clouddn.com/%E8%B4%9D%E5%A1%9E%E5%B0%94%E6%9B%B2%E7%BA%BF%E4%B8%802.png" alt="11"><br><img src="http://7xrqmg.com1.z0.glb.clouddn.com/%E8%B4%9D%E5%A1%9E%E5%B0%94%E6%9B%B2%E7%BA%BF%E4%B8%803.png" alt="11"><br><img src="http://7xrqmg.com1.z0.glb.clouddn.com/%E8%B4%9D%E5%A1%9E%E5%B0%94%E6%9B%B2%E7%BA%BF%E4%B8%804.png" alt="11"><br><img src="http://7xrqmg.com1.z0.glb.clouddn.com/%E8%B4%9D%E5%A1%9E%E5%B0%94%E6%9B%B2%E7%BA%BF%E4%B8%805.png" alt="11"><br><img src="http://7xrqmg.com1.z0.glb.clouddn.com/%E8%B4%9D%E5%A1%9E%E5%B0%94%E6%9B%B2%E7%BA%BF%E4%B8%806.PNG" alt="11"></li>
+</ol>
+
+      
+    </div>
+    
   </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/03/10/渐变图层和插值曲线/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">渐变图层和插值曲线</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/03/10/渐变图层和插值曲线/" class="archive-article-date">
-  	<time datetime="2016-03-10T15:37:19.000Z" itemprop="datePublished">Mar 10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/03/10/渐变图层和插值曲线/">渐变图层和插值曲线</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
 
-    
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="贝塞尔曲线整理-一" data-title="贝塞尔曲线整理(一)" data-url="http://yoursite.com/2016/03/11/贝塞尔曲线整理-一/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
 
 </div>
       <footer id="footer">
@@ -295,8 +334,8 @@
 		mathjax: true,
 		animate: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false

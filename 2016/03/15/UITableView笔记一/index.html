@@ -6,22 +6,19 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <title>UITableView笔记一 | ZhangKangReadStone</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="UITableView笔记一UITableView作为iOS开发最常用的控件,没有之一.可见其使用的频繁,现在我现充最简单的使用说起,至于一些简单的使用不用赘述,大家也都明白.
-12345678910111213#pragma mark tableView Getter-(UITableView *)tableView&amp;#123;    if (!_tableView) &amp;#123;">
+  <meta name="description" content="UITableView笔记一UITableView作为iOS开发最常用的控件,没有之一.可见其使用的频繁,现在我现充最简单的使用说起,至于一些简单的使用不用赘述,大家也都明白.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="UITableView笔记一">
 <meta property="og:url" content="http://yoursite.com/2016/03/15/UITableView笔记一/index.html">
 <meta property="og:site_name" content="ZhangKangReadStone">
-<meta property="og:description" content="UITableView笔记一UITableView作为iOS开发最常用的控件,没有之一.可见其使用的频繁,现在我现充最简单的使用说起,至于一些简单的使用不用赘述,大家也都明白.
-12345678910111213#pragma mark tableView Getter-(UITableView *)tableView&amp;#123;    if (!_tableView) &amp;#123;">
+<meta property="og:description" content="UITableView笔记一UITableView作为iOS开发最常用的控件,没有之一.可见其使用的频繁,现在我现充最简单的使用说起,至于一些简单的使用不用赘述,大家也都明白.">
 <meta property="og:image" content="http://7xrqmg.com1.z0.glb.clouddn.com/UITableView1.png">
 <meta property="og:image" content="http://7xrqmg.com1.z0.glb.clouddn.com/UITableView2.png">
 <meta property="og:image" content="http://7xrqmg.com1.z0.glb.clouddn.com/UITableView3.png">
-<meta property="og:updated_time" content="2016-03-15T14:58:05.000Z">
+<meta property="og:updated_time" content="2016-03-16T10:04:40.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="UITableView笔记一">
-<meta name="twitter:description" content="UITableView笔记一UITableView作为iOS开发最常用的控件,没有之一.可见其使用的频繁,现在我现充最简单的使用说起,至于一些简单的使用不用赘述,大家也都明白.
-12345678910111213#pragma mark tableView Getter-(UITableView *)tableView&amp;#123;    if (!_tableView) &amp;#123;">
+<meta name="twitter:description" content="UITableView笔记一UITableView作为iOS开发最常用的控件,没有之一.可见其使用的频繁,现在我现充最简单的使用说起,至于一些简单的使用不用赘述,大家也都明白.">
 <meta name="twitter:image" content="http://7xrqmg.com1.z0.glb.clouddn.com/UITableView1.png">
   
     <link rel="alternative" href="/atom.xml" title="ZhangKangReadStone" type="application/atom+xml">
@@ -242,6 +239,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>UITableView笔记一<br>UITableView作为iOS开发最常用的控件,没有之一.可见其使用的频繁,现在我现充最简单的使用说起,至于一些简单的使用不用赘述,大家也都明白.</p>
+<a id="more"></a>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">#pragma mark tableView Getter</span><br><span class="line">-(UITableView *)tableView</span><br><span class="line">&#123;</span><br><span class="line">    if (!_tableView) &#123;</span><br><span class="line">        _tableView = [[UITableView alloc]initWithFrame:self.view.bounds];</span><br><span class="line">        _tableView.delegate = self;</span><br><span class="line">        _tableView.dataSource = self;</span><br><span class="line">        _tableView.rowHeight = 50;</span><br><span class="line">        _tableView.separatorInset = UIEdgeInsetsZero;</span><br><span class="line">        [self.view addSubview:_tableView];</span><br><span class="line">    &#125;</span><br><span class="line">    return _tableView;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>注意一、_tableView.rowHeight = 50;在行高为定值的时候最好替换掉下面的方法</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath</span><br><span class="line">&#123;</span><br><span class="line">    //如果不是定值可用Switch语法,提高代码可读性</span><br><span class="line">    switch (indexPath.row) &#123;</span><br><span class="line">        case 0:</span><br><span class="line">            return 20;</span><br><span class="line">            break;</span><br><span class="line">        case 1:</span><br><span class="line">            return 30;</span><br><span class="line">            break;</span><br><span class="line">        case 2:</span><br><span class="line">            return 40;</span><br><span class="line">            break;</span><br><span class="line">        default:</span><br><span class="line">            break;</span><br><span class="line">    &#125;</span><br><span class="line">    return 50;///此方法如果返回的是定值,例如每一行都是50,那么最好用_tableView.rowHeight = 50;替换此方法</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>

@@ -6,22 +6,16 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <title>贝塞尔曲线及简单使用 | ZhangKangReadStone</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="贝塞尔曲线的简单使用
-废话少说,先挂上代码:.h文件
-123456789101112#import &amp;lt;UIKit/UIKit.h&amp;gt;typedef enum&amp;#123;    BrokenLineType,////折线类型    RectangleType,////矩形(正方形)    RoundType,////圆形(椭圆)、圆环    ArcType,///弧线(扇形)    Cur">
+  <meta name="description" content="贝塞尔曲线的简单使用">
 <meta property="og:type" content="article">
 <meta property="og:title" content="贝塞尔曲线及简单使用">
 <meta property="og:url" content="http://yoursite.com/2016/03/15/贝塞尔曲线及简单使用/index.html">
 <meta property="og:site_name" content="ZhangKangReadStone">
-<meta property="og:description" content="贝塞尔曲线的简单使用
-废话少说,先挂上代码:.h文件
-123456789101112#import &amp;lt;UIKit/UIKit.h&amp;gt;typedef enum&amp;#123;    BrokenLineType,////折线类型    RectangleType,////矩形(正方形)    RoundType,////圆形(椭圆)、圆环    ArcType,///弧线(扇形)    Cur">
-<meta property="og:updated_time" content="2016-03-15T10:29:16.000Z">
+<meta property="og:description" content="贝塞尔曲线的简单使用">
+<meta property="og:updated_time" content="2016-03-16T10:04:55.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="贝塞尔曲线及简单使用">
-<meta name="twitter:description" content="贝塞尔曲线的简单使用
-废话少说,先挂上代码:.h文件
-123456789101112#import &amp;lt;UIKit/UIKit.h&amp;gt;typedef enum&amp;#123;    BrokenLineType,////折线类型    RectangleType,////矩形(正方形)    RoundType,////圆形(椭圆)、圆环    ArcType,///弧线(扇形)    Cur">
+<meta name="twitter:description" content="贝塞尔曲线的简单使用">
   
     <link rel="alternative" href="/atom.xml" title="ZhangKangReadStone" type="application/atom+xml">
   
@@ -241,6 +235,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>贝塞尔曲线的简单使用</p>
+<a id="more"></a>
 <p>废话少说,先挂上代码:<br>.h文件</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">#import &lt;UIKit/UIKit.h&gt;</span><br><span class="line"></span><br><span class="line">typedef enum&#123;</span><br><span class="line">    BrokenLineType,////折线类型</span><br><span class="line">    RectangleType,////矩形(正方形)</span><br><span class="line">    RoundType,////圆形(椭圆)、圆环</span><br><span class="line">    ArcType,///弧线(扇形)</span><br><span class="line">    CurveType,////曲线</span><br><span class="line">&#125;PathType;</span><br><span class="line">@interface NewView : UIView</span><br><span class="line"></span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
 <p>.m文件</p>

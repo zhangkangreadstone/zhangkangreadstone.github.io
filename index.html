@@ -232,32 +232,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>一.对沙盒的理解<br>每个iOS应用都被限制在“沙盒”中，沙盒相当于一个加了仅主人可见权限的文件夹，及时在应用程序安装过程中，系统为每个单独的应用程序生成它的主目录和一些关键的子目录。苹果对沙盒有几条限制:</p>
-<ol>
-<li>应用程序在自己的沙盒中运作，但是不能访问任何其他应用程序的沙盒；</li>
-<li>应用之间不能共享数据，沙盒里的文件不能被复制到其他<br>应用程序的文件夹中，也不能把其他应用文件夹复制到沙盒中；</li>
-<li>苹果禁止任何读写沙盒以外的文件，禁止应用程序将内容写到沙盒以外的文件夹中；</li>
-<li>沙盒目录里有三个文件夹：Documents——存储<br>应用程序的数据文件，存储用户数据或其他定期备份的信息；<br>Library下有两个文件夹，Caches存储应用程序再次启动所需的信息，<br>Preferences包含应用程序的偏好设置文件，不可在这更改偏好设置；<br>temp存放临时文件即应用程序再次启动不需要的文件。</li>
-</ol>
-<p>获取沙盒根目录的方法，有几种方法：用NSHomeDirectory获取。<br>获取Document路径：<br><code>NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask,YES).</code></p>
-<p>二.给UIImage添加生成圆角图片的扩展API：这是on-screen-rendering</p>
-<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="built_in">UIImage</span> *)imageWithCornerRadius:(<span class="built_in">CGFloat</span>)radius &#123;</span><br><span class="line"><span class="built_in">CGRect</span> rect = (<span class="built_in">CGRect</span>)&#123;<span class="number">0.</span>f, <span class="number">0.</span>f, <span class="keyword">self</span>.size&#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">UIGraphicsBeginImageContextWithOptions</span>(<span class="keyword">self</span>.size, <span class="literal">NO</span>, <span class="built_in">UIScreen</span>.mainScreen.scale);</span><br><span class="line"><span class="built_in">CGContextAddPath</span>(<span class="built_in">UIGraphicsGetCurrentContext</span>(),</span><br><span class="line"> [<span class="built_in">UIBezierPath</span> bezierPathWithRoundedRect:rect cornerRadius:radius].CGPath);</span><br><span class="line"><span class="built_in">CGContextClip</span>(<span class="built_in">UIGraphicsGetCurrentContext</span>());</span><br><span class="line"></span><br><span class="line">[<span class="keyword">self</span> drawInRect:rect];</span><br><span class="line"><span class="built_in">UIImage</span> *image = <span class="built_in">UIGraphicsGetImageFromCurrentImageContext</span>();</span><br><span class="line"></span><br><span class="line"><span class="built_in">UIGraphicsEndImageContext</span>();</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> image;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>三.XIB与Storyboards的优缺点<br>优点：</p>
-<p>XIB：在编译前就提供了可视化界面，可以直接拖控件，也可以直接给控件添加约束，更直观一些，而且类文件中就少了创建控件的代码，确实简化不少，通常每个XIB对应一个类。<br>Storyboard：在编译前提供了可视化界面，可拖控件，可加约束，在开发时比较直观，而且一个storyboard可以有很多的界面，每个界面对应一个类文件，通过storybard，可以直观地看出整个App的结构。<br>缺点：</p>
-<p>XIB：需求变动时，需要修改XIB很大，有时候甚至需要重新添加约束，导致开发周期变长。XIB载入相比纯代码自然要慢一些。对于比较复杂逻辑控制不同状态下显示不同内容时，使用XIB是比较困难的。当多人团队或者多团队开发时，如果XIB文件被发动，极易导致冲突，而且解决冲突相对要困难很多。<br>Storyboard：需求变动时，需要修改storyboard上对应的界面的约束，与XIB一样可能要重新添加约束，或者添加约束会造成大量的冲突，尤其是多团队开发。对于复杂逻辑控制不同显示内容时，比较困难。当多人团队或者多团队开发时，大家会同时修改一个storyboard，导致大量冲突，解决起来相当困难。</p>
-<p>四.对于Run Loop的理解<br>RunLoop，是多线程的法宝，即一个线程一次只能执行一个任务，执行完任务后就会退出线程。主线程执行完即时任务时会继续等待接收事件而不退出。非主线程通常来说就是为了执行某一任务的，执行完毕就需要归还资源，因此默认是不运行RunLoop的；<br>每一个线程都有其对应的RunLoop，只是默认只有主线程的RunLoop是启动的，其它子线程的RunLoop默认是不启动的，若要启动则需要手动启动；<br>在一个单独的线程中，如果需要在处理完某个任务后不退出，继续等待接收事件，则需要启用RunLoop；<br>NSRunLoop提供了一个添加NSTimer的方法，可以指定Mode，如果要让任何情况下都回调，则需要设置Mode为Common模式；<br>实质上，对于子线程的runloop默认是不存在的，因为苹果采用了懒加载的方式。如果我们没有手动调用[NSRunLoop currentRunLoop]的话，就不会去查询是否存在当前线程的RunLoop，也就不会去加载，更不会创建。</p>
-<p>五.有a、b、c、d 4个异步请求，如何判断a、b、c、d都完成执行？如果需要a、b、c、d顺序执行，该如何实现？<br>对于这四个异步请求，要判断都执行完成最简单的方式就是通过GCD的group来实现：<br><code>dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
-dispatch_group_t group = dispatch_group_create();
-dispatch_group_async(group, queue, ^{ /*任务a */ });
-dispatch_group_async(group, queue, ^{ /*任务b */ });
-dispatch_group_async(group, queue, ^{ /*任务c */ }); 
-dispatch_group_async(group, queue, ^{ /*任务d */ }); 
-dispatch_group_notify(group,dispatch_get_main_queue(), ^{
- // 在a、b、c、d异步执行完成后，会回调这里
-});</code></p>
-<p>当然，我们还可以使用非常老套的方法来处理，通过四个变量来标识a、b、c、d四个任务是否完成，然后在runloop中让其等待，当完成时才退出runloop。但是这样做会让后面的代码得不到执行，直到Run loop执行完毕。<br>解释：要求顺序执行，那么可以将任务放到串行队列中，自然就是按顺序来异步执行了。</p>
-<p>六.对象可以被copy的条件<br>只有实现了NSCopying和NSMutableCopying协议的类的对象才能被拷贝,分为不可变拷贝和可变拷贝,具体区别戳这；<br>NSCopying协议方法为：</p>
-<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">id</span>)copyWithZone:(<span class="built_in">NSZone</span> *)zone </span><br><span class="line">&#123;</span><br><span class="line"> MyObject *<span class="keyword">copy</span> = [[[<span class="keyword">self</span> class] allocWithZone: zone] init];</span><br><span class="line"> <span class="keyword">copy</span>.username = [<span class="keyword">self</span>.username copyWithZone:zone];</span><br><span class="line"> <span class="keyword">return</span> <span class="keyword">copy</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <p>iOS开发实战注意事项：<br>一.对沙盒的理解<br>每个iOS应用都被限制在“沙盒”中，沙盒相当于一个加了仅主人可见权限的文件夹，及时在应用程序安装过程中，系统为每个单独的应用程序生成它的主目录和一些关键的子目录。苹果对沙盒有几条限制:<br>
       
     </div>
     
@@ -266,6 +241,10 @@ dispatch_group_notify(group,dispatch_get_main_queue(), ^{
       
       
 
+      
+        <p class="article-more-link">
+          <a  href="/2016/03/21/iOS实战注意事项一/#more">阅读全文 >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>

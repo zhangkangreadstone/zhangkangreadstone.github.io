@@ -17,7 +17,7 @@
 <meta property="og:image" content="http://www.lupaworld.com/data/attachment/portal/201408/28/161353v3rxz8wczo70r007.gif">
 <meta property="og:image" content="http://www.lupaworld.com/data/attachment/portal/201408/28/161353g0pvzsdbf7vab79p.gif">
 <meta property="og:image" content="http://www.lupaworld.com/data/attachment/portal/201408/28/161354bea714ap6ee96793.gif">
-<meta property="og:updated_time" content="2016-03-23T04:07:52.000Z">
+<meta property="og:updated_time" content="2016-03-23T04:09:38.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="基础算法总结">
 <meta name="twitter:description" content="一、堆排序：堆排序原理：任何一非叶节点的关键字不大于或者不小于其左右孩子节点的关字。满足： Key[i]&amp;lt;=key[2i+1]&amp;amp;&amp;amp;Key[i]&amp;lt;=key[2i+2]或者Key[i]&amp;gt;=Key[2i+1]&amp;amp;&amp;amp;key&amp;gt;=key[2i+2]
@@ -247,6 +247,7 @@
       
         <p>一、堆排序：<br>堆排序原理：任何一非叶节点的关键字不大于或者不小于其左右孩子节点的关字。满足： <code>Key[i]&lt;=key[2i+1]&amp;&amp;Key[i]&lt;=key[2i+2]</code>或者<code>Key[i]&gt;=Key[2i+1]&amp;&amp;key&gt;=key[2i+2]</code></p>
 <p>1.根据以上原理，对每个非叶节点的二叉树进行调整，保证其父节点是最大值，这样就能把对立面的最大值推到堆顶。</p>
+<a id="more"></a>
 <p>2.每一次调整获得当前堆的最大值（最小值）放到指定位置 就是当前堆区间的最后一个节点位置。</p>
 <p>3.因为从堆底的非叶子节点开始调整，所以可能会出现不满足堆性质的父节点需要重新调整，调整过程除去刚刚获得的最大值（最小值），也就是在堆里面只保留上一次获取最大值的位置，调整除它以外的新堆。</p>
 <p>4.重复执行步骤1、2 、3，直到排序完成。<br><img src="http://www.lupaworld.com/data/attachment/portal/201408/28/161353v3rxz8wczo70r007.gif" alt="MySuanFa"></p>

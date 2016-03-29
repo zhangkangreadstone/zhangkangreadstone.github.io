@@ -4,25 +4,18 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>基础算法总结 | ZhangKangReadStone</title>
+  <title>初探ReactNative | ZhangKangReadStone</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一、堆排序：堆排序原理：任何一非叶节点的关键字不大于或者不小于其左右孩子节点的关字。满足： Key[i]&amp;lt;=key[2i+1]&amp;amp;&amp;amp;Key[i]&amp;lt;=key[2i+2]或者Key[i]&amp;gt;=Key[2i+1]&amp;amp;&amp;amp;key&amp;gt;=key[2i+2]
-1.根据以上原理，对每个非叶节点的二叉树进行调整，保证其父节点是最大值，这样就能把对立面的最大值推到堆顶。">
+  <meta name="description" content="去年12月份，初次接触ReactNative，第一感觉这东西还不成熟，距离真正的使用还有一段路要走，那就是踩坑！想到这就忍不住吐槽，没有什么正规的开发工具，也没有及时更新的文档，当时ES6的语法和网上各种ES5的教程，几乎让我崩溃，后来也因为手头的工作忙暂时丢下了，最近又看了几篇文章就尝试一下写个小东西，下面就根据我的使用说说我对ReactNative的看法吧。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="基础算法总结">
-<meta property="og:url" content="http://yoursite.com/2016/03/23/基础算法总结/index.html">
+<meta property="og:title" content="初探ReactNative">
+<meta property="og:url" content="http://yoursite.com/2016/03/29/初探ReactNative/index.html">
 <meta property="og:site_name" content="ZhangKangReadStone">
-<meta property="og:description" content="一、堆排序：堆排序原理：任何一非叶节点的关键字不大于或者不小于其左右孩子节点的关字。满足： Key[i]&amp;lt;=key[2i+1]&amp;amp;&amp;amp;Key[i]&amp;lt;=key[2i+2]或者Key[i]&amp;gt;=Key[2i+1]&amp;amp;&amp;amp;key&amp;gt;=key[2i+2]
-1.根据以上原理，对每个非叶节点的二叉树进行调整，保证其父节点是最大值，这样就能把对立面的最大值推到堆顶。">
-<meta property="og:image" content="http://www.lupaworld.com/data/attachment/portal/201408/28/161353v3rxz8wczo70r007.gif">
-<meta property="og:image" content="http://www.lupaworld.com/data/attachment/portal/201408/28/161353g0pvzsdbf7vab79p.gif">
-<meta property="og:image" content="http://www.lupaworld.com/data/attachment/portal/201408/28/161354bea714ap6ee96793.gif">
-<meta property="og:updated_time" content="2016-03-23T04:09:38.000Z">
+<meta property="og:description" content="去年12月份，初次接触ReactNative，第一感觉这东西还不成熟，距离真正的使用还有一段路要走，那就是踩坑！想到这就忍不住吐槽，没有什么正规的开发工具，也没有及时更新的文档，当时ES6的语法和网上各种ES5的教程，几乎让我崩溃，后来也因为手头的工作忙暂时丢下了，最近又看了几篇文章就尝试一下写个小东西，下面就根据我的使用说说我对ReactNative的看法吧。">
+<meta property="og:updated_time" content="2016-03-29T08:59:42.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="基础算法总结">
-<meta name="twitter:description" content="一、堆排序：堆排序原理：任何一非叶节点的关键字不大于或者不小于其左右孩子节点的关字。满足： Key[i]&amp;lt;=key[2i+1]&amp;amp;&amp;amp;Key[i]&amp;lt;=key[2i+2]或者Key[i]&amp;gt;=Key[2i+1]&amp;amp;&amp;amp;key&amp;gt;=key[2i+2]
-1.根据以上原理，对每个非叶节点的二叉树进行调整，保证其父节点是最大值，这样就能把对立面的最大值推到堆顶。">
-<meta name="twitter:image" content="http://www.lupaworld.com/data/attachment/portal/201408/28/161353v3rxz8wczo70r007.gif">
+<meta name="twitter:title" content="初探ReactNative">
+<meta name="twitter:description" content="去年12月份，初次接触ReactNative，第一感觉这东西还不成熟，距离真正的使用还有一段路要走，那就是踩坑！想到这就忍不住吐槽，没有什么正规的开发工具，也没有及时更新的文档，当时ES6的语法和网上各种ES5的教程，几乎让我崩溃，后来也因为手头的工作忙暂时丢下了，最近又看了几篇文章就尝试一下写个小东西，下面就根据我的使用说说我对ReactNative的看法吧。">
   
     <link rel="alternative" href="/atom.xml" title="ZhangKangReadStone" type="application/atom+xml">
   
@@ -212,11 +205,11 @@
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-基础算法总结" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-初探ReactNative" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/03/23/基础算法总结/" class="article-date">
-  	<time datetime="2016-03-23T04:07:13.000Z" itemprop="datePublished">2016-03-23</time>
+      <a href="/2016/03/29/初探ReactNative/" class="article-date">
+  	<time datetime="2016-03-29T06:29:13.000Z" itemprop="datePublished">2016-03-29</time>
 </a>
     </div>
   
@@ -229,7 +222,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      基础算法总结
+      初探ReactNative
     </h1>
   
 
@@ -245,23 +238,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>一、堆排序：<br>堆排序原理：任何一非叶节点的关键字不大于或者不小于其左右孩子节点的关字。满足： <code>Key[i]&lt;=key[2i+1]&amp;&amp;Key[i]&lt;=key[2i+2]</code>或者<code>Key[i]&gt;=Key[2i+1]&amp;&amp;key&gt;=key[2i+2]</code></p>
-<p>1.根据以上原理，对每个非叶节点的二叉树进行调整，保证其父节点是最大值，这样就能把对立面的最大值推到堆顶。</p>
-<a id="more"></a>
-<p>2.每一次调整获得当前堆的最大值（最小值）放到指定位置 就是当前堆区间的最后一个节点位置。</p>
-<p>3.因为从堆底的非叶子节点开始调整，所以可能会出现不满足堆性质的父节点需要重新调整，调整过程除去刚刚获得的最大值（最小值），也就是在堆里面只保留上一次获取最大值的位置，调整除它以外的新堆。</p>
-<p>4.重复执行步骤1、2 、3，直到排序完成。<br><img src="http://www.lupaworld.com/data/attachment/portal/201408/28/161353v3rxz8wczo70r007.gif" alt="MySuanFa"></p>
-<p>二、快速排序：</p>
-<p>快速排序原理：从一个数组中随机取一个数作为基准，然后把剩余的数与这个基准做对比，比这个基准大的放基准后面，比这个基准小的放基准前面，再把基准前后的两组数做如上处理，如此反复直到所有的数都排好（也就是没有尚未处理过的数组）,算法示意图如下：<br><img src="http://www.lupaworld.com/data/attachment/portal/201408/28/161353g0pvzsdbf7vab79p.gif" alt="MySuanFa"></p>
-<p>三、归并排序：</p>
-<p>归并排序是一种非常高效的排序算法，其原理：</p>
-<p>归并基础：通过比较两个有序数组（都是升序或者降序）A、B里面的首个元素的大小，小的数放在一个新的空数组C里，并把这个数从原数组里移除，然后重复执行两个数组A、B的首元素的比较，然后再选出最小的取出放到C，重复执行直到两个数组合并。</p>
-<p>归并原理：一个无序数组A，可以把它分成两个数组B和C，如果B和C里面的元素个数不是1的话通常不满足归并排序的基础，所以我们可以不管子数组是否符合要求，直接把子数组再分组直到子数组的元素个数为1，这样子数组就默认是有序数组，再按照归并基础进行合并。</p>
-<p>算法图：</p>
-<p><img src="http://www.lupaworld.com/data/attachment/portal/201408/28/161354bea714ap6ee96793.gif" alt="MySuanFa"></p>
-<p>四、二分查找算法：</p>
-<p>　　二分查找算法是一种在有序数组中查找某一特定元素的搜索算法。搜素过程从数组的中间元素开始，如果中间元素正好是要查找的元素，则搜 素过程结束； 如果某一特定元素大于或者小于中间元素，则在数组大于或小于中间元素的那一半中查找，而且跟开始一样从中间元素开始比较。如果在某一步骤数组 为空，则代 表找不到。这种搜索算法每一次比较都使搜索范围缩小一半。折半搜索每次把搜索区域减少一半，时间复杂度为Ο(logn) 。
-　　</p>
+        <p>去年12月份，初次接触ReactNative，第一感觉这东西还不成熟，距离真正的使用还有一段路要走，那就是踩坑！想到这就忍不住吐槽，没有什么正规的开发工具，也没有及时更新的文档，当时ES6的语法和网上各种ES5的教程，几乎让我崩溃，后来也因为手头的工作忙暂时丢下了，最近又看了几篇文章就尝试一下写个小东西，下面就根据我的使用说说我对ReactNative的看法吧。<br><a id="more"></a><br>   总体来说，惊喜总在踩坑后。因为我是从iOS转过来的，所以刚开始接触的时候会有太多的不顺，先入为主，研究ES6总是没有那么顺，但是用的久了，感觉就像Swift一样，瑕不掩瑜。想想刚开始建一个工程运行都会报错的纠结吐槽，到查看官方文档，到论坛里面搜索有帮助的帖子，然后自己写Demo测试，网上的资料都是ES5版本的资料，所以在每次查看资料的时候也是我很痛苦的时候，需要一点一点转换成ES6，到现在慢慢的使用，感受另一种风格的代码，也就感觉到它的魅力所在了。现在已经喜欢上了，可能还是用着没有那么熟练，还有很多东西需要去学习，去研究，最重要的应该是实战，在实战中进步才是真正的能力，后面我会把我的学习过程写成博文，记录下来。<br>   从语言的发展来看，如果苹果不及时处理这种低效率审核机制，ReactNative还是很有优势的，这种及时的更新会让APP具有很高的可玩性，不会造成用户的使用疲劳，但是太过频繁也会把一款APP优势尽失，因为没有一个Leader会有这种可以一直准确的把握用户的喜好的功能不被改掉的把握。所以，ReactNative有很大优势，但是劣势也会很明显，等待以后的研究使用，再做不断完善吧。</p>
 
       
     </div>
@@ -271,18 +248,9 @@
     
 <nav id="article-nav">
   
-    <a href="/2016/03/29/初探ReactNative/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          初探ReactNative
-        
-      </div>
-    </a>
   
-  
-    <a href="/2016/03/21/iOS实战注意事项一/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">iOS实战注意事项一</div>
+    <a href="/2016/03/23/基础算法总结/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">基础算法总结</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -317,7 +285,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="基础算法总结" data-title="基础算法总结" data-url="http://yoursite.com/2016/03/23/基础算法总结/"></div>
+	<div class="ds-thread" data-thread-key="初探ReactNative" data-title="初探ReactNative" data-url="http://yoursite.com/2016/03/29/初探ReactNative/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">

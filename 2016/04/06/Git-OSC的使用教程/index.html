@@ -23,7 +23,7 @@ Git（可以在http://code.google.com/p/git-osx-installer/下载git安装程序�
 <meta property="og:image" content="http://7xrqmg.com1.z0.glb.clouddn.com/gitOSC1.tiff">
 <meta property="og:image" content="http://7xrqmg.com1.z0.glb.clouddn.com/gitOSC2.tiff">
 <meta property="og:image" content="http://7xrqmg.com1.z0.glb.clouddn.com/gitOSC3.tiff">
-<meta property="og:updated_time" content="2016-04-06T02:17:54.000Z">
+<meta property="og:updated_time" content="2016-04-06T02:19:28.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git@OSC的使用教程">
 <meta name="twitter:description" content="Git@OSC的使用教程：第一步： 使用准备
@@ -255,7 +255,8 @@ Git（可以在http://code.google.com/p/git-osx-installer/下载git安装程序�
 <li>Git（可以在<a href="http://code.google.com/p/git-osx-installer/下载git安装程序，或者在https://www.kernel.org/pub/software/scm/git/下载源码安装" target="_blank" rel="external">http://code.google.com/p/git-osx-installer/下载git安装程序，或者在https://www.kernel.org/pub/software/scm/git/下载源码安装</a></li>
 <li>下载Xcode 并安装  略</li>
 <li>创建工程目录 起个名字 例：Git@osChina</li>
-<li>配置Git并连接到git@git.oschina.net</li>
+<li>配置Git并连接到git@git.oschina.net<a id="more"></a>
+</li>
 </ol>
 <h5 id="第二步：成生SSH密钥"><a href="#第二步：成生SSH密钥" class="headerlink" title="第二步：成生SSH密钥"></a>第二步：成生SSH密钥</h5><p>打开终端命令工具，输入命令：ssh-keygen -t rsa -C “自己的邮箱@163.com”<br>终端输出：<br>Generating public/private rsa key pair.<br>Enter file in which to save the key (/Users/lsh/.ssh/id_rsa): 这里填写公钥的名字(自定义)<br>Enter passphrase (empty for no passphrase): 输入自己设定的密码（不要忘记）<br>Enter same passphrase again: 确认密码<br>Your identification has been saved in myQQ.<br>Your public key has been saved in myQQ.pub.<br>The key fingerprint is:<br>SHA256:/gzPQdCnHkjs3qtU41dSSWnngWDBnsARgKwJU 113435533@qq.com<br>The key’s randomart image is:</p>
 <figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">+---[RSA 2048]----+</span><br><span class="line">|<span class="string">= .o+. o.0+Bo...o</span>|</span><br><span class="line">|<span class="string">...E  . *o=. 0.+o</span>|</span><br><span class="line">|<span class="string"> .     .**0 . =++</span>|</span><br><span class="line">|<span class="string">        ..++ o80+</span>|</span><br><span class="line">|<span class="string">       .Soo ...o.</span>|</span><br><span class="line">|<span class="string">       .... . . .</span>|</span><br><span class="line">|<span class="string">        0..  .   </span>|</span><br><span class="line">|<span class="string">         * .     </span>|</span><br><span class="line">|<span class="string">          =      </span>|</span><br><span class="line">+----[SHA256]-----+</span><br></pre></td></tr></table></figure>

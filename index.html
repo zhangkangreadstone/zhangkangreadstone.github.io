@@ -229,32 +229,11 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h3 id="Git-OSC的使用教程："><a href="#Git-OSC的使用教程：" class="headerlink" title="Git@OSC的使用教程："></a>Git@OSC的使用教程：</h3><h5 id="第一步：-使用准备"><a href="#第一步：-使用准备" class="headerlink" title="第一步： 使用准备"></a>第一步： 使用准备</h5><ol>
-<li>注册账号：<a href="http://git.oschina.net" target="_blank" rel="external">http://git.oschina.net</a></li>
-<li>Git（可以在<a href="http://code.google.com/p/git-osx-installer/下载git安装程序，或者在https://www.kernel.org/pub/software/scm/git/下载源码安装" target="_blank" rel="external">http://code.google.com/p/git-osx-installer/下载git安装程序，或者在https://www.kernel.org/pub/software/scm/git/下载源码安装</a></li>
+<li>注册账号：<a href="http://git.oschina.net">http://git.oschina.net</a></li>
+<li>Git（可以在<a href="http://code.google.com/p/git-osx-installer/下载git安装程序，或者在https://www.kernel.org/pub/software/scm/git/下载源码安装">http://code.google.com/p/git-osx-installer/下载git安装程序，或者在https://www.kernel.org/pub/software/scm/git/下载源码安装</a></li>
 <li>下载Xcode 并安装  略</li>
 <li>创建工程目录 起个名字 例：Git@osChina</li>
-<li>配置Git并连接到git@git.oschina.net</li>
-</ol>
-<h5 id="第二步：成生SSH密钥"><a href="#第二步：成生SSH密钥" class="headerlink" title="第二步：成生SSH密钥"></a>第二步：成生SSH密钥</h5><p>打开终端命令工具，输入命令：ssh-keygen -t rsa -C “自己的邮箱@163.com”<br>终端输出：<br>Generating public/private rsa key pair.<br>Enter file in which to save the key (/Users/lsh/.ssh/id_rsa): 这里填写公钥的名字(自定义)<br>Enter passphrase (empty for no passphrase): 输入自己设定的密码（不要忘记）<br>Enter same passphrase again: 确认密码<br>Your identification has been saved in myQQ.<br>Your public key has been saved in myQQ.pub.<br>The key fingerprint is:<br>SHA256:/gzPQdCnHkjs3qtU41dSSWnngWDBnsARgKwJU 113435533@qq.com<br>The key’s randomart image is:</p>
-<figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">+---[RSA 2048]----+</span><br><span class="line">|<span class="string">= .o+. o.0+Bo...o</span>|</span><br><span class="line">|<span class="string">...E  . *o=. 0.+o</span>|</span><br><span class="line">|<span class="string"> .     .**0 . =++</span>|</span><br><span class="line">|<span class="string">        ..++ o80+</span>|</span><br><span class="line">|<span class="string">       .Soo ...o.</span>|</span><br><span class="line">|<span class="string">       .... . . .</span>|</span><br><span class="line">|<span class="string">        0..  .   </span>|</span><br><span class="line">|<span class="string">         * .     </span>|</span><br><span class="line">|<span class="string">          =      </span>|</span><br><span class="line">+----[SHA256]-----+</span><br></pre></td></tr></table></figure>
-<p>在/Users/lsh/.ssh/id_rsa路径下这就生成了公钥和私钥 </p>
-<h5 id="第三步：把myQQ-pub中的内容加入git-osc-的SSH密钥中"><a href="#第三步：把myQQ-pub中的内容加入git-osc-的SSH密钥中" class="headerlink" title="第三步：把myQQ.pub中的内容加入git@osc 的SSH密钥中"></a>第三步：把myQQ.pub中的内容加入git@osc 的SSH密钥中</h5><p>注意是带有<code>.pub</code>后缀的 用记事本打开<br><img src="http://7xrqmg.com1.z0.glb.clouddn.com/gitOSC1.tiff" alt="myImg"><br> 把里面的内容复制到下面的图框中<br><img src="http://7xrqmg.com1.z0.glb.clouddn.com/gitOSC2.tiff" alt="MyImg"></p>
-<h5 id="第四步：添加SSH并连接"><a href="#第四步：添加SSH并连接" class="headerlink" title="第四步：添加SSH并连接"></a>第四步：添加SSH并连接</h5><p>输入命令：ssh-add 后面跟秘钥路径  是刚刚生成的密钥文件路径，屏幕输出：<br>Enter passphrase for 秘钥路径:输入设定的秘钥密码</p>
-<p>输入命令ssh -T git@git.oschina.net，屏幕输出：<br>Welcome to Git@OSC , 自己名字!</p>
-<h5 id="第五步：设置个人信息"><a href="#第五步：设置个人信息" class="headerlink" title="第五步：设置个人信息"></a>第五步：设置个人信息</h5><p>输入命令：</p>
-<p>git config –global user.name “myName”</p>
-<p>git config –global user.email myEmail@163.com</p>
-<h5 id="第六步：设置项目"><a href="#第六步：设置项目" class="headerlink" title="第六步：设置项目"></a>第六步：设置项目</h5><p>输入命令：cd 项目文件夹</p>
-<p>例：<code>https://git.oschina.net/MyName/JCBTest.git</code><br>出处：<img src="http://7xrqmg.com1.z0.glb.clouddn.com/gitOSC3.tiff" alt="MyImg"></p>
-<p>输入命令：git remote add origin git@git.oschina.net:MyName/JCBTest.git</p>
-<p>输入命令：git pull -u origin master //从git@osc 上拉取项目</p>
-<p>输入命令：git push -u origin master //提交项目</p>
-<h5 id="第七步：提交项目内容"><a href="#第七步：提交项目内容" class="headerlink" title="第七步：提交项目内容"></a>第七步：提交项目内容</h5><p>cd gitOSChina/JCBTest/           进入项目的目录<br>git init                            初始化本地库（仅第一次时需要）<br>git remote add origin git@git.oschina.net:MyName/JCBTest.git  添加远程版本库的别名<br>git add .       添加所有文件到版本库<br>git commit -a -m “commit message”    添加所有修改该版本库<br>git pull origin master      从远程库获取并合并到本地库<br>git push origin master      将修改推送到远程库</p>
-<h6 id="第八步：更新工程"><a href="#第八步：更新工程" class="headerlink" title="第八步：更新工程"></a>第八步：更新工程</h6><p>cd gitOSChina/JBCalendar/           进入项目的目录<br>git add .       添加所有文件到版本库<br>git commit -a -m “commit JBCalendar”    添加所有修改该版本库<br>git pull origin master      从远程库获取并合并到本地库<br>git push origin master      将修改推送到远程库</p>
-<p>常见错误：</p>
-<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ssh: Could <span class="keyword">not</span> <span class="built_in">resolve</span> hostname git.oschina.net:JustBen: nodename nor servname provided, <span class="keyword">or</span> <span class="keyword">not</span> known</span><br><span class="line">fatal: Could <span class="keyword">not</span> <span class="built_in">read</span> <span class="built_in">from</span> remote repository.</span><br><span class="line">Please make sure you have <span class="keyword">the</span> correct access rights <span class="keyword">and</span> <span class="keyword">the</span> repository exists.</span><br></pre></td></tr></table></figure>
-<p>解决办法：把SSHKey重新添加一下，然后再次提交</p>
-
+<li>配置Git并连接到git@git.oschina.net
       
     </div>
     
@@ -263,6 +242,10 @@
       
       
 
+      
+        <p class="article-more-link">
+          <a  href="/2016/04/06/Git-OSC的使用教程/#more">阅读全文 >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>

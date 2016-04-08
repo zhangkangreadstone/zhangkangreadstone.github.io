@@ -6,20 +6,17 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <title>RunTime学习(一) | ZKReadStone</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="RunTime的理解：
-RunTime的理解runtime是一种运行时机制，runtime库里面包含了跟类/成员变量/方法相关的API,比如获取类里面的所有成员变量，为类动态添加成员变量，动态改变类的方法实现，为类动态添加新的方法等，需要导入,">
+  <meta name="description" content="RunTime的理解runtime是一种运行时机制，runtime库里面包含了跟类/成员变量/方法相关的API,比如获取类里面的所有成员变量，为类动态添加成员变量，动态改变类的方法实现，为类动态添加新的方法等，需要导入,">
 <meta property="og:type" content="article">
 <meta property="og:title" content="RunTime学习(一)">
 <meta property="og:url" content="http://yoursite.com/2016/04/08/RunTime学习-一/index.html">
 <meta property="og:site_name" content="ZKReadStone">
-<meta property="og:description" content="RunTime的理解：
-RunTime的理解runtime是一种运行时机制，runtime库里面包含了跟类/成员变量/方法相关的API,比如获取类里面的所有成员变量，为类动态添加成员变量，动态改变类的方法实现，为类动态添加新的方法等，需要导入,">
+<meta property="og:description" content="RunTime的理解runtime是一种运行时机制，runtime库里面包含了跟类/成员变量/方法相关的API,比如获取类里面的所有成员变量，为类动态添加成员变量，动态改变类的方法实现，为类动态添加新的方法等，需要导入,">
 <meta property="og:image" content="http://7xrqmg.com1.z0.glb.clouddn.com/Pasted%20Graphic.tiff">
-<meta property="og:updated_time" content="2016-04-08T04:46:16.000Z">
+<meta property="og:updated_time" content="2016-04-08T09:57:48.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="RunTime学习(一)">
-<meta name="twitter:description" content="RunTime的理解：
-RunTime的理解runtime是一种运行时机制，runtime库里面包含了跟类/成员变量/方法相关的API,比如获取类里面的所有成员变量，为类动态添加成员变量，动态改变类的方法实现，为类动态添加新的方法等，需要导入,">
+<meta name="twitter:description" content="RunTime的理解runtime是一种运行时机制，runtime库里面包含了跟类/成员变量/方法相关的API,比如获取类里面的所有成员变量，为类动态添加成员变量，动态改变类的方法实现，为类动态添加新的方法等，需要导入,">
 <meta name="twitter:image" content="http://7xrqmg.com1.z0.glb.clouddn.com/Pasted%20Graphic.tiff">
   
     <link rel="alternative" href="/atom.xml" title="ZKReadStone" type="application/atom+xml">
@@ -243,8 +240,7 @@ RunTime的理解runtime是一种运行时机制，runtime库里面包含了跟�
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>RunTime的理解：</p>
-<h5 id="RunTime的理解"><a href="#RunTime的理解" class="headerlink" title="RunTime的理解"></a>RunTime的理解</h5><p>runtime是一种运行时机制，runtime库里面包含了跟类/成员变量/方法相关的API,比如获取类里面的所有成员变量，为类动态添加成员变量，动态改变类的方法实现，为类动态添加新的方法等，需要导入<objc message.h="">,<objc runtime=""></objc></objc></p>
+        <h5 id="RunTime的理解"><a href="#RunTime的理解" class="headerlink" title="RunTime的理解"></a>RunTime的理解</h5><p>runtime是一种运行时机制，runtime库里面包含了跟类/成员变量/方法相关的API,比如获取类里面的所有成员变量，为类动态添加成员变量，动态改变类的方法实现，为类动态添加新的方法等，需要导入<objc message.h="">,<objc runtime=""></objc></objc></p>
 <a id="more"></a>
 <p>简单理解：电脑就是一个机器，他的语言是C语言，而我们用的是Objective-C,我们和电脑之间的交流就需要一个翻译，要么这个翻译把C转换成我们能理解的OC，要么这个翻译把我们的OC翻译成电脑理解的C语言，而runtime就是类似这么个东西，我们写的代码命令需要电脑去理解执行，runtime就是把我们的代码翻译成C语言给电脑执行。</p>
 <p>理论解释:我们编写的所有OC代码，最终都是转成了runtime库的东西，比如类转成了runtime库里面的结构体等数据类型，方法转成了runtime库里面的C语言函数，平时调方法都是转成了objc_msgSend函数(所以说OC有个消息发送机制)</p>

@@ -7,21 +7,26 @@
   <title>基础算法总结 | ZKReadStone</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="一、堆排序：堆排序原理：任何一非叶节点的关键字不大于或者不小于其左右孩子节点的关字。满足： Key[i]&amp;lt;=key[2i+1]&amp;amp;&amp;amp;Key[i]&amp;lt;=key[2i+2]或者Key[i]&amp;gt;=Key[2i+1]&amp;amp;&amp;amp;key&amp;gt;=key[2i+2]
-1.根据以上原理，对每个非叶节点的二叉树进行调整，保证其父节点是最大值，这样就能把对立面的最大值推到堆顶。">
+
+根据以上原理，对每个非叶节点的二叉树进行调整，保证其父节点是最大值，这样就能把对立面的最大值推到堆顶。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="基础算法总结">
 <meta property="og:url" content="http://yoursite.com/2016/03/23/基础算法总结/index.html">
 <meta property="og:site_name" content="ZKReadStone">
 <meta property="og:description" content="一、堆排序：堆排序原理：任何一非叶节点的关键字不大于或者不小于其左右孩子节点的关字。满足： Key[i]&amp;lt;=key[2i+1]&amp;amp;&amp;amp;Key[i]&amp;lt;=key[2i+2]或者Key[i]&amp;gt;=Key[2i+1]&amp;amp;&amp;amp;key&amp;gt;=key[2i+2]
-1.根据以上原理，对每个非叶节点的二叉树进行调整，保证其父节点是最大值，这样就能把对立面的最大值推到堆顶。">
+
+根据以上原理，对每个非叶节点的二叉树进行调整，保证其父节点是最大值，这样就能把对立面的最大值推到堆顶。">
 <meta property="og:image" content="http://www.lupaworld.com/data/attachment/portal/201408/28/161353v3rxz8wczo70r007.gif">
 <meta property="og:image" content="http://www.lupaworld.com/data/attachment/portal/201408/28/161353g0pvzsdbf7vab79p.gif">
 <meta property="og:image" content="http://www.lupaworld.com/data/attachment/portal/201408/28/161354bea714ap6ee96793.gif">
-<meta property="og:updated_time" content="2016-04-06T02:27:12.000Z">
+<meta property="og:image" content="http://cricode.qiniudn.com/bubble_sort_animation.gif">
+<meta property="og:image" content="http://cricode.qiniudn.com/selection_sort_animation.gif">
+<meta property="og:updated_time" content="2016-04-08T10:51:29.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="基础算法总结">
 <meta name="twitter:description" content="一、堆排序：堆排序原理：任何一非叶节点的关键字不大于或者不小于其左右孩子节点的关字。满足： Key[i]&amp;lt;=key[2i+1]&amp;amp;&amp;amp;Key[i]&amp;lt;=key[2i+2]或者Key[i]&amp;gt;=Key[2i+1]&amp;amp;&amp;amp;key&amp;gt;=key[2i+2]
-1.根据以上原理，对每个非叶节点的二叉树进行调整，保证其父节点是最大值，这样就能把对立面的最大值推到堆顶。">
+
+根据以上原理，对每个非叶节点的二叉树进行调整，保证其父节点是最大值，这样就能把对立面的最大值推到堆顶。">
 <meta name="twitter:image" content="http://www.lupaworld.com/data/attachment/portal/201408/28/161353v3rxz8wczo70r007.gif">
   
     <link rel="alternative" href="/atom.xml" title="ZKReadStone" type="application/atom+xml">
@@ -245,22 +250,39 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>一、堆排序：<br>堆排序原理：任何一非叶节点的关键字不大于或者不小于其左右孩子节点的关字。满足： <code>Key[i]&lt;=key[2i+1]&amp;&amp;Key[i]&lt;=key[2i+2]</code>或者<code>Key[i]&gt;=Key[2i+1]&amp;&amp;key&gt;=key[2i+2]</code></p>
-<p>1.根据以上原理，对每个非叶节点的二叉树进行调整，保证其父节点是最大值，这样就能把对立面的最大值推到堆顶。</p>
+        <h5 id="一、堆排序："><a href="#一、堆排序：" class="headerlink" title="一、堆排序："></a>一、堆排序：</h5><p>堆排序原理：任何一非叶节点的关键字不大于或者不小于其左右孩子节点的关字。满足： <code>Key[i]&lt;=key[2i+1]&amp;&amp;Key[i]&lt;=key[2i+2]</code>或者<code>Key[i]&gt;=Key[2i+1]&amp;&amp;key&gt;=key[2i+2]</code></p>
+<ol>
+<li>根据以上原理，对每个非叶节点的二叉树进行调整，保证其父节点是最大值，这样就能把对立面的最大值推到堆顶。</li>
+</ol>
 <a id="more"></a>
-<p>2.每一次调整获得当前堆的最大值（最小值）放到指定位置 就是当前堆区间的最后一个节点位置。</p>
-<p>3.因为从堆底的非叶子节点开始调整，所以可能会出现不满足堆性质的父节点需要重新调整，调整过程除去刚刚获得的最大值（最小值），也就是在堆里面只保留上一次获取最大值的位置，调整除它以外的新堆。</p>
-<p>4.重复执行步骤1、2 、3，直到排序完成。<br><img src="http://www.lupaworld.com/data/attachment/portal/201408/28/161353v3rxz8wczo70r007.gif" alt="MySuanFa"></p>
-<p>二、快速排序：</p>
-<p>快速排序原理：从一个数组中随机取一个数作为基准，然后把剩余的数与这个基准做对比，比这个基准大的放基准后面，比这个基准小的放基准前面，再把基准前后的两组数做如上处理，如此反复直到所有的数都排好（也就是没有尚未处理过的数组）,算法示意图如下：<br><img src="http://www.lupaworld.com/data/attachment/portal/201408/28/161353g0pvzsdbf7vab79p.gif" alt="MySuanFa"></p>
-<p>三、归并排序：</p>
-<p>归并排序是一种非常高效的排序算法，其原理：</p>
+<ol>
+<li><p>每一次调整获得当前堆的最大值（最小值）放到指定位置 就是当前堆区间的最后一个节点位置。</p>
+</li>
+<li><p>因为从堆底的非叶子节点开始调整，所以可能会出现不满足堆性质的父节点需要重新调整，调整过程除去刚刚获得的最大值（最小值），也就是在堆里面只保留上一次获取最大值的位置，调整除它以外的新堆。</p>
+</li>
+<li><p>重复执行步骤1、2 、3，直到排序完成。</p>
+</li>
+</ol>
+<p><img src="http://www.lupaworld.com/data/attachment/portal/201408/28/161353v3rxz8wczo70r007.gif" alt="MySuanFa"></p>
+<h5 id="二、快速排序："><a href="#二、快速排序：" class="headerlink" title="二、快速排序："></a>二、快速排序：</h5><p>快速排序原理：从一个数组中随机取一个数作为基准，然后把剩余的数与这个基准做对比，比这个基准大的放基准后面，比这个基准小的放基准前面，再把基准前后的两组数做如上处理，如此反复直到所有的数都排好（也就是没有尚未处理过的数组）,算法示意图如下：<br><img src="http://www.lupaworld.com/data/attachment/portal/201408/28/161353g0pvzsdbf7vab79p.gif" alt="MySuanFa"></p>
+<h5 id="三、归并排序："><a href="#三、归并排序：" class="headerlink" title="三、归并排序："></a>三、归并排序：</h5><p>归并排序是一种非常高效的排序算法，其原理：</p>
 <p>归并基础：通过比较两个有序数组（都是升序或者降序）A、B里面的首个元素的大小，小的数放在一个新的空数组C里，并把这个数从原数组里移除，然后重复执行两个数组A、B的首元素的比较，然后再选出最小的取出放到C，重复执行直到两个数组合并。</p>
 <p>归并原理：一个无序数组A，可以把它分成两个数组B和C，如果B和C里面的元素个数不是1的话通常不满足归并排序的基础，所以我们可以不管子数组是否符合要求，直接把子数组再分组直到子数组的元素个数为1，这样子数组就默认是有序数组，再按照归并基础进行合并。</p>
 <p>算法图：</p>
 <p><img src="http://www.lupaworld.com/data/attachment/portal/201408/28/161354bea714ap6ee96793.gif" alt="MySuanFa"></p>
-<p>四、二分查找算法：</p>
-<p>　　二分查找算法是一种在有序数组中查找某一特定元素的搜索算法。搜素过程从数组的中间元素开始，如果中间元素正好是要查找的元素，则搜 素过程结束； 如果某一特定元素大于或者小于中间元素，则在数组大于或小于中间元素的那一半中查找，而且跟开始一样从中间元素开始比较。如果在某一步骤数组 为空，则代 表找不到。这种搜索算法每一次比较都使搜索范围缩小一半。折半搜索每次把搜索区域减少一半，时间复杂度为Ο(logn) 。
+<h5 id="四、冒泡排序："><a href="#四、冒泡排序：" class="headerlink" title="四、冒泡排序："></a>四、冒泡排序：</h5><p>冒泡排序：依次遍历数组，把每一个元素和其后的小数组里每一个元素做比较，如果这个元素比小数组里的元素大（小），那就把它二者交换位置，继续比较交换后的元素和刚刚被交换元素后面的子元素，直到数组排列完成！<br>算法步骤：数组：[3,7,2,6,0,5,4,8,1,9]举例</p>
+<ol>
+<li><p>遍历数组，把数组分为被遍历数，和被遍历数后面的小数组。例，当遍历到7的时候 就分为7位置A 和 A后面的所有元素组成的小数组。</p>
+</li>
+<li><p>分别比较A位置上的数和小数组里的每一个元素的大小，如果A位置上的数大于某个元素，就把二者交换，<br>继续拿A位置上的数和数组里未比较过的数进行比较，直到小数组被遍历</p>
+</li>
+<li><p>一直执行1、2直到原数组被遍历。</p>
+</li>
+</ol>
+<p><img src="http://cricode.qiniudn.com/bubble_sort_animation.gif" alt="MySuanFa"></p>
+<h5 id="五、选择排序："><a href="#五、选择排序：" class="headerlink" title="五、选择排序："></a>五、选择排序：</h5><p>选择排序原理：<br>选择数组里最小的数放在数组最前面位置，然后从剩余的数里找出最小值放到最前面，直到排序完成，此为倒序，顺序就把大的放前面。</p>
+<p><img src="http://cricode.qiniudn.com/selection_sort_animation.gif" alt="MySuanFa"></p>
+<h5 id="五、二分查找算法："><a href="#五、二分查找算法：" class="headerlink" title="五、二分查找算法："></a>五、二分查找算法：</h5><p>　　二分查找算法是一种在有序数组中查找某一特定元素的搜索算法。搜素过程从数组的中间元素开始，如果中间元素正好是要查找的元素，则搜 素过程结束； 如果某一特定元素大于或者小于中间元素，则在数组大于或小于中间元素的那一半中查找，而且跟开始一样从中间元素开始比较。如果在某一步骤数组 为空，则代 表找不到。这种搜索算法每一次比较都使搜索范围缩小一半。折半搜索每次把搜索区域减少一半，时间复杂度为Ο(logn) 。
 　　</p>
 
       

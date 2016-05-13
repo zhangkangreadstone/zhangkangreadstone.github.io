@@ -12,7 +12,7 @@
 <meta property="og:url" content="http://yoursite.com/2016/05/13/常用正则表达式收集/index.html">
 <meta property="og:site_name" content="ZKReadStone">
 <meta property="og:description" content="常用正则表达式收集">
-<meta property="og:updated_time" content="2016-05-13T04:18:43.000Z">
+<meta property="og:updated_time" content="2016-05-13T04:21:22.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="常用正则表达式收集">
 <meta name="twitter:description" content="常用正则表达式收集">
@@ -245,11 +245,11 @@
    <figure class="highlight gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">	  ^<span class="comment">(?=.*\d)</span><span class="comment">(?=.*[a-z])</span><span class="comment">(?=.*[A-Z])</span>.&#123;<span class="number">8</span>,<span class="number">10</span>&#125;$    </span><br><span class="line">	  ``` </span><br><span class="line"></span><br><span class="line"><span class="number">2.</span> 字符串仅能是中文。</span><br></pre></td></tr></table></figure>
 <p>^[\u4e00-\u9fa5]{0,}$ </p>
   <figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="code">      </span></span><br><span class="line"><span class="bullet">3. </span>由数字、26个英文字母或下划线组成的字符串</span><br></pre></td></tr></table></figure>
-<p>^\w+$<br>  ``` </p>
+<p>^\w+$ </p>
+<pre><code>
+4. 校验E-Mail地址
+</code></pre><p>[\w!#$%&amp;’<em>+/=?^_`{|}~-]+(?:.[\w!#$%&amp;’</em>+/=?^_`{|}~-]+)<em>@(?:[\w](?:[\w-]</em>[\w])?.)+<a href="?:[\w-]*[\w]">\w</a>?<br> ``` </p>
 </li>
-<li><p>4.校验E-Mail地址</p>
-<pre><code>[\w!#$%&amp;&apos;*+/=?^_`{|}~-]+(?:\.[\w!#$%&amp;&apos;*+/=?^_`{|}~-]+)*@(?:[\w](?:[\w-]*[\w])?\.)+[\w](?:[\w-]*[\w])?
-</code></pre></li>
 <li><p>校验日期“yyyy-mm-dd“格式的日期校验，已考虑平闰年。</p>
 <pre><code>^(?:(?!0000)[0-9]{4}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-8])|(?:0[13-9]|1[0-2])-(?:29|30)|(?:0[13578]|1[02])-31)|(?:[0-9]{2}(?:0[48]|[2468][048]|[13579][26])|(?:0[48]|[2468][048]|[13579][26])00)-02-29)$
 </code></pre></li>

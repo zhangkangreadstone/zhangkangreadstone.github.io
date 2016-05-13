@@ -12,7 +12,7 @@
 <meta property="og:url" content="http://yoursite.com/2016/05/13/常用正则表达式收集/index.html">
 <meta property="og:site_name" content="ZKReadStone">
 <meta property="og:description" content="常用正则表达式收集">
-<meta property="og:updated_time" content="2016-05-13T04:21:22.000Z">
+<meta property="og:updated_time" content="2016-05-13T04:25:05.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="常用正则表达式收集">
 <meta name="twitter:description" content="常用正则表达式收集">
@@ -242,32 +242,40 @@
 <a id="more"></a>
 <ol>
 <li><p>密码的强度必须是包含大小写字母和数字的组合，不能使用特殊字符，长度在8-10之间。</p>
-   <figure class="highlight gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">	  ^<span class="comment">(?=.*\d)</span><span class="comment">(?=.*[a-z])</span><span class="comment">(?=.*[A-Z])</span>.&#123;<span class="number">8</span>,<span class="number">10</span>&#125;$    </span><br><span class="line">	  ``` </span><br><span class="line"></span><br><span class="line"><span class="number">2.</span> 字符串仅能是中文。</span><br></pre></td></tr></table></figure>
-<p>^[\u4e00-\u9fa5]{0,}$ </p>
-  <figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="code">      </span></span><br><span class="line"><span class="bullet">3. </span>由数字、26个英文字母或下划线组成的字符串</span><br></pre></td></tr></table></figure>
-<p>^\w+$ </p>
-<pre><code>
-4. 校验E-Mail地址
-</code></pre><p>[\w!#$%&amp;’<em>+/=?^_`{|}~-]+(?:.[\w!#$%&amp;’</em>+/=?^_`{|}~-]+)<em>@(?:[\w](?:[\w-]</em>[\w])?.)+<a href="?:[\w-]*[\w]">\w</a>?<br> ``` </p>
+<p>   <code>^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,10}$</code> </p>
+</li>
+<li><p>字符串仅能是中文。</p>
+</li>
+</ol>
+<pre><code>`
+</code></pre><p> ^[\u4e00-\u9fa5]{0,}$<br>     ` </p>
+<ol>
+<li><p>由数字、26个英文字母或下划线组成的字符串</p>
+<p>  <code>^\w+$</code></p>
+<ol>
+<li><p>校验E-Mail地址</p>
+<p><code>[\w!#$%&amp;&#39;*+/=?^_</code>{|}~-]+(?:.[\w!#$%&amp;’<em>+/=?^_`{|}~-]+)</em>@(?:<a href="?:[\w-]*[\w]">\w</a>?.)+<a href="?:[\w-]*[\w]">\w</a>?<br>`</p>
+</li>
+</ol>
 </li>
 <li><p>校验日期“yyyy-mm-dd“格式的日期校验，已考虑平闰年。</p>
-<pre><code>^(?:(?!0000)[0-9]{4}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-8])|(?:0[13-9]|1[0-2])-(?:29|30)|(?:0[13578]|1[02])-31)|(?:[0-9]{2}(?:0[48]|[2468][048]|[13579][26])|(?:0[48]|[2468][048]|[13579][26])00)-02-29)$
-</code></pre></li>
-<li><p>身份证号码的正则校验。15或18位。15位： </p>
-<pre><code>^[1-9]\d{7}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{3}$ `  18位：`^[1-9]\d{5}[1-9]\d{3}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{3}([0-9]|X)$
-</code></pre></li>
+<p>   <code>^(?:(?!0000)[0-9]{4}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-8])|(?:0[13-9]|1[0-2])-(?:29|30)|(?:0[13578]|1[02])-31)|(?:[0-9]{2}(?:0[48]|[2468][048]|[13579][26])|(?:0[48]|[2468][048]|[13579][26])00)-02-29)$</code></p>
+</li>
+<li><p>身份证号码的正则校验。15或18位。<br>15位：<br><code>^[1-9]\d{7}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{3}$</code> </p>
+<p>18位：<br><code>^[1-9]\d{5}[1-9]\d{3}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{3}([0-9]|X)$</code></p>
+</li>
 <li><p>金额校验，精确到2位小数。</p>
-<pre><code>^[0-9]+(.[0-9]{2})?$
-</code></pre></li>
+<p> <code>^[0-9]+(.[0-9]{2})?$</code></p>
+</li>
 <li><p>下面是国内13、15、18开头的手机号正则表达式。（可根据目前国内收集号扩展前两位开头号码）</p>
-<pre><code>^(13[0-9]|14[5|7]|15[0|1|2|3|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\d{8}$
-</code></pre></li>
+<p> <code>^(13[0-9]|14[5|7]|15[0|1|2|3|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\d{8}$</code></p>
+</li>
 <li><p>检查URL的前缀 应用开发中很多时候需要区分请求是HTTPS还是HTTP，通过下面的表达式可以取出一个url的前缀然后再逻辑判断。</p>
-<pre><code>if(!s.match(/^[a-zA-Z]+:\/\//))
-{
-s=&apos;http://&apos;+s;
-}
-</code></pre></li>
+<p> <code>if(!s.match(/^[a-zA-Z]+:\/\//))
+ {
+ s=&#39;http://&#39;+s;
+ }</code></p>
+</li>
 </ol>
 
       

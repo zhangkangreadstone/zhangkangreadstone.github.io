@@ -116,7 +116,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/OC/" style="font-size: 20px;">OC</a> <a href="/tags/ReactNative/" style="font-size: 13.33px;">ReactNative</a> <a href="/tags/RunTime/" style="font-size: 10px;">RunTime</a> <a href="/tags/UI/" style="font-size: 13.33px;">UI</a> <a href="/tags/UITableView/" style="font-size: 16.67px;">UITableView</a> <a href="/tags/工具使用/" style="font-size: 10px;">工具使用</a> <a href="/tags/注意事项/" style="font-size: 10px;">注意事项</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a> <a href="/tags/组件使用/" style="font-size: 13.33px;">组件使用</a> <a href="/tags/贝塞尔/" style="font-size: 13.33px;">贝塞尔</a> <a href="/tags/随笔/" style="font-size: 13.33px;">随笔</a>
+						<a href="/tags/OC/" style="font-size: 20px;">OC</a> <a href="/tags/ReactNative/" style="font-size: 13.33px;">ReactNative</a> <a href="/tags/RunTime/" style="font-size: 10px;">RunTime</a> <a href="/tags/UI/" style="font-size: 13.33px;">UI</a> <a href="/tags/UITableView/" style="font-size: 16.67px;">UITableView</a> <a href="/tags/工具/" style="font-size: 10px;">工具</a> <a href="/tags/工具使用/" style="font-size: 10px;">工具使用</a> <a href="/tags/正则/" style="font-size: 10px;">正则</a> <a href="/tags/注意事项/" style="font-size: 10px;">注意事项</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a> <a href="/tags/组件使用/" style="font-size: 13.33px;">组件使用</a> <a href="/tags/贝塞尔/" style="font-size: 13.33px;">贝塞尔</a> <a href="/tags/随笔/" style="font-size: 13.33px;">随笔</a>
 					</div>
 				</section>
 				
@@ -201,6 +201,91 @@
 </nav>
 
       <div class="body-wrap">
+  
+    <article id="post-常用正则表达式收集" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/05/13/常用正则表达式收集/" class="article-date">
+  	<time datetime="2016-05-13T03:48:46.000Z" itemprop="datePublished">2016-05-13</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/05/13/常用正则表达式收集/">常用正则表达式收集</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li><p>密码的强度必须是包含大小写字母和数字的组合，不能使用特殊字符，长度在8-10之间。</p>
+ <figure class="highlight gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">   ^<span class="comment">(?=.*\d)</span><span class="comment">(?=.*[a-z])</span><span class="comment">(?=.*[A-Z])</span>.&#123;<span class="number">8</span>,<span class="number">10</span>&#125;$ </span><br><span class="line">     </span><br><span class="line">    ``` </span><br><span class="line"></span><br><span class="line"><span class="number">2.</span> 字符串仅能是中文。</span><br></pre></td></tr></table></figure>
+<p>^[\u4e00-\u9fa5]{0,}$ </p>
+  <figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="code">      </span></span><br><span class="line"><span class="bullet">3. </span>由数字、26个英文字母或下划线组成的字符串</span><br></pre></td></tr></table></figure>
+<p>^\w+$<br>  ``` </p>
+</li>
+<li><p>4.校验E-Mail地址</p>
+<pre><code>[\w!#$%&amp;&apos;*+/=?^_`{|}~-]+(?:\.[\w!#$%&amp;&apos;*+/=?^_`{|}~-]+)*@(?:[\w](?:[\w-]*[\w])?\.)+[\w](?:[\w-]*[\w])?
+</code></pre></li>
+<li><p>校验日期“yyyy-mm-dd“格式的日期校验，已考虑平闰年。</p>
+<pre><code>^(?:(?!0000)[0-9]{4}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-8])|(?:0[13-9]|1[0-2])-(?:29|30)|(?:0[13578]|1[02])-31)|(?:[0-9]{2}(?:0[48]|[2468][048]|[13579][26])|(?:0[48]|[2468][048]|[13579][26])00)-02-29)$
+</code></pre></li>
+<li><p>身份证号码的正则校验。15或18位。15位： </p>
+<pre><code>^[1-9]\d{7}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{3}$ `  18位：`^[1-9]\d{5}[1-9]\d{3}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{3}([0-9]|X)$
+</code></pre></li>
+<li><p>金额校验，精确到2位小数。</p>
+<pre><code>^[0-9]+(.[0-9]{2})?$
+</code></pre></li>
+<li><p>下面是国内13、15、18开头的手机号正则表达式。（可根据目前国内收集号扩展前两位开头号码）</p>
+<pre><code>^(13[0-9]|14[5|7]|15[0|1|2|3|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\d{8}$
+</code></pre></li>
+<li><p>检查URL的前缀 应用开发中很多时候需要区分请求是HTTPS还是HTTP，通过下面的表达式可以取出一个url的前缀然后再逻辑判断。</p>
+<pre><code>if(!s.match(/^[a-zA-Z]+:\/\//))
+{
+s=&apos;http://&apos;+s;
+}
+</code></pre></li>
+</ol>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/工具/">工具</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/正则/">正则</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-RunTime学习-一" class="article article-type-post" itemscope itemprop="blogPost">
   

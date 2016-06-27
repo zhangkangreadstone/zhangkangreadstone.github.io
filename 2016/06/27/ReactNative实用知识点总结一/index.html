@@ -6,22 +6,19 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <title>ReactNative实用知识点总结一 | ZKReadStone</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="######一. 文件引入import Const from &amp;#39;../macro/const&amp;#39; ‘../‘表示的当前父文件夹，可以·通过../../来表示上层的上层 ，’./‘表示当前文件夹
-######二. 定义公共类属性在公共组件里定义变量
-1234567var SCREEN_WIDTH = Dimensions.get(&apos;window&apos;).width;var SCREEN_H">
+  <meta name="description" content="一. 文件引入import Const from &amp;#39;../macro/const&amp;#39; ‘../‘表示的当前父文件夹，可以·通过../../来表示上层的上层 ，’./‘表示当前文件夹二. 定义公共类属性在公共组件里定义变量
+1234567var SCREEN_WIDTH = Dimensions.get(&apos;window&apos;).width;var SCREEN_HEIGHT = Dimen">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ReactNative实用知识点总结一">
 <meta property="og:url" content="http://yoursite.com/2016/06/27/ReactNative实用知识点总结一/index.html">
 <meta property="og:site_name" content="ZKReadStone">
-<meta property="og:description" content="######一. 文件引入import Const from &amp;#39;../macro/const&amp;#39; ‘../‘表示的当前父文件夹，可以·通过../../来表示上层的上层 ，’./‘表示当前文件夹
-######二. 定义公共类属性在公共组件里定义变量
-1234567var SCREEN_WIDTH = Dimensions.get(&apos;window&apos;).width;var SCREEN_H">
-<meta property="og:updated_time" content="2016-06-27T07:43:27.000Z">
+<meta property="og:description" content="一. 文件引入import Const from &amp;#39;../macro/const&amp;#39; ‘../‘表示的当前父文件夹，可以·通过../../来表示上层的上层 ，’./‘表示当前文件夹二. 定义公共类属性在公共组件里定义变量
+1234567var SCREEN_WIDTH = Dimensions.get(&apos;window&apos;).width;var SCREEN_HEIGHT = Dimen">
+<meta property="og:updated_time" content="2016-06-27T07:46:06.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ReactNative实用知识点总结一">
-<meta name="twitter:description" content="######一. 文件引入import Const from &amp;#39;../macro/const&amp;#39; ‘../‘表示的当前父文件夹，可以·通过../../来表示上层的上层 ，’./‘表示当前文件夹
-######二. 定义公共类属性在公共组件里定义变量
-1234567var SCREEN_WIDTH = Dimensions.get(&apos;window&apos;).width;var SCREEN_H">
+<meta name="twitter:description" content="一. 文件引入import Const from &amp;#39;../macro/const&amp;#39; ‘../‘表示的当前父文件夹，可以·通过../../来表示上层的上层 ，’./‘表示当前文件夹二. 定义公共类属性在公共组件里定义变量
+1234567var SCREEN_WIDTH = Dimensions.get(&apos;window&apos;).width;var SCREEN_HEIGHT = Dimen">
   
     <link rel="alternative" href="/atom.xml" title="ZKReadStone" type="application/atom+xml">
   
@@ -244,13 +241,12 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>######一. 文件引入<br><code>import Const from &#39;../macro/const&#39;</code> ‘../‘表示的当前父文件夹，可以·通过../../来表示上层的上层 ，’./‘表示当前文件夹</p>
-<p>######二. 定义公共类属性<br>在公共组件里定义变量</p>
+        <p>一. 文件引入<br><code>import Const from &#39;../macro/const&#39;</code> ‘../‘表示的当前父文件夹，可以·通过../../来表示上层的上层 ，’./‘表示当前文件夹<br>二. 定义公共类属性<br>在公共组件里定义变量</p>
 <figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable"><span class="keyword">var</span> SCREEN_WIDTH</span> = Dimensions.<span class="keyword">get</span>('window').width;</span><br><span class="line"><span class="variable"><span class="keyword">var</span> SCREEN_HEIGHT</span> = Dimensions.<span class="keyword">get</span>('window').height;</span><br><span class="line"><span class="variable"><span class="keyword">var</span> NAV_BAR_HEIGHT</span> = <span class="number">44</span>;</span><br><span class="line"><span class="variable"><span class="keyword">var</span> STATUS_BAR_HEIGHT</span> = Platform.OS === 'ios'?<span class="number">20</span>:<span class="number">0</span>;</span><br><span class="line"><span class="variable"><span class="keyword">var</span> TAB_BAR_HEIGHT</span> = <span class="number">49</span>;</span><br><span class="line"><span class="variable"><span class="keyword">var</span> STATUS_BAR_NAV_BAR_HEIGHT</span> = STATUS_BAR_HEIGHT + NAV_BAR_HEIGHT;</span><br><span class="line"><span class="variable"><span class="keyword">var</span> STATUS_BAR_NAV_BAR_TAB_BAR_HEIGHT</span> = STATUS_BAR_NAV_BAR_HEIGHT + TAB_BAR_HEIGHT;</span><br></pre></td></tr></table></figure>
-<p>—&lt;!more&gt;—</p>
+<a id="more"></a>
 <p>并且在<code>module.exports = {}</code>设置属性</p>
 <figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">screen_width</span>: SCREEN_WIDTH,</span><br><span class="line"><span class="attribute">screen_height</span>: SCREEN_HEIGHT,</span><br><span class="line"><span class="attribute">nav_bar_height</span>: NAV_BAR_HEIGHT,</span><br><span class="line"><span class="attribute">status_bar_height</span>: STATUS_BAR_HEIGHT,</span><br><span class="line"><span class="attribute">tab_bar_height</span>: TAB_BAR_HEIGHT,</span><br><span class="line"><span class="attribute">status_bar_nav_bar_height</span>: STATUS_BAR_NAV_BAR_HEIGHT,</span><br><span class="line"><span class="attribute">bar_height</span>: STATUS_BAR_NAV_BAR_TAB_BAR_HEIGHT,</span><br><span class="line"></span><br><span class="line"><span class="groovy"><span class="string">bg_color:</span><span class="string">'rgb(240,240,240)'</span>,</span><br><span class="line"><span class="string">font_pf_Zhonghei:</span><span class="string">'PingFang-SC-Medium'</span>,</span><br><span class="line"><span class="string">font_pf_Changgui:</span><span class="string">'PingFang-SC-Regular'</span>,</span><br><span class="line"></span><br><span class="line"><span class="string">color_hei_84 :</span><span class="string">'rgba(51,51,51,0.84)'</span>,</span><br><span class="line"><span class="string">color_hei_12 :</span><span class="string">'rgba(51,51,51,0.12)'</span>,</span><br><span class="line"><span class="string">color_hei_24 :</span><span class="string">'rgba(51,51,51,0.24)'</span>,</span><br><span class="line"><span class="string">color_hei_32 :</span><span class="string">'rgba(51,51,51,0.32)'</span>,</span></span><br></pre></td></tr></table></figure>
-<p>#######三. 定义公共组件 和封装思想</p>
+<p>三. 定义公共组件 和封装思想</p>
 <ol>
 <li>传入参数形式定义–如下</li>
 </ol>

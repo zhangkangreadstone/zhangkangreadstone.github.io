@@ -116,7 +116,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/OC/" style="font-size: 20px;">OC</a> <a href="/tags/ReactNative/" style="font-size: 13.33px;">ReactNative</a> <a href="/tags/RunTime/" style="font-size: 10px;">RunTime</a> <a href="/tags/UI/" style="font-size: 13.33px;">UI</a> <a href="/tags/UITableView/" style="font-size: 16.67px;">UITableView</a> <a href="/tags/工具/" style="font-size: 10px;">工具</a> <a href="/tags/工具使用/" style="font-size: 10px;">工具使用</a> <a href="/tags/正则/" style="font-size: 10px;">正则</a> <a href="/tags/注意事项/" style="font-size: 10px;">注意事项</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a> <a href="/tags/组件使用/" style="font-size: 13.33px;">组件使用</a> <a href="/tags/贝塞尔/" style="font-size: 13.33px;">贝塞尔</a> <a href="/tags/随笔/" style="font-size: 13.33px;">随笔</a>
+						<a href="/tags/OC/" style="font-size: 20px;">OC</a> <a href="/tags/ReactNative/" style="font-size: 16.67px;">ReactNative</a> <a href="/tags/RunTime/" style="font-size: 10px;">RunTime</a> <a href="/tags/UI/" style="font-size: 13.33px;">UI</a> <a href="/tags/UITableView/" style="font-size: 16.67px;">UITableView</a> <a href="/tags/实用知识点/" style="font-size: 10px;">实用知识点</a> <a href="/tags/工具/" style="font-size: 10px;">工具</a> <a href="/tags/工具使用/" style="font-size: 10px;">工具使用</a> <a href="/tags/正则/" style="font-size: 10px;">正则</a> <a href="/tags/注意事项/" style="font-size: 10px;">注意事项</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a> <a href="/tags/组件使用/" style="font-size: 13.33px;">组件使用</a> <a href="/tags/贝塞尔/" style="font-size: 13.33px;">贝塞尔</a> <a href="/tags/随笔/" style="font-size: 13.33px;">随笔</a>
 					</div>
 				</section>
 				
@@ -201,6 +201,88 @@
 </nav>
 
       <div class="body-wrap">
+  
+    <article id="post-ReactNative实用知识点总结一" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/06/27/ReactNative实用知识点总结一/" class="article-date">
+  	<time datetime="2016-06-27T03:20:28.000Z" itemprop="datePublished">2016-06-27</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/06/27/ReactNative实用知识点总结一/">ReactNative实用知识点总结一</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>######一. 文件引入<br><code>import Const from &#39;../macro/const&#39;</code> ‘../‘表示的当前父文件夹，可以·通过../../来表示上层的上层 ，’./‘表示当前文件夹</p>
+<p>######二. 定义公共类属性<br>在公共组件里定义变量</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable"><span class="keyword">var</span> SCREEN_WIDTH</span> = Dimensions.<span class="keyword">get</span>('window').width;</span><br><span class="line"><span class="variable"><span class="keyword">var</span> SCREEN_HEIGHT</span> = Dimensions.<span class="keyword">get</span>('window').height;</span><br><span class="line"><span class="variable"><span class="keyword">var</span> NAV_BAR_HEIGHT</span> = <span class="number">44</span>;</span><br><span class="line"><span class="variable"><span class="keyword">var</span> STATUS_BAR_HEIGHT</span> = Platform.OS === 'ios'?<span class="number">20</span>:<span class="number">0</span>;</span><br><span class="line"><span class="variable"><span class="keyword">var</span> TAB_BAR_HEIGHT</span> = <span class="number">49</span>;</span><br><span class="line"><span class="variable"><span class="keyword">var</span> STATUS_BAR_NAV_BAR_HEIGHT</span> = STATUS_BAR_HEIGHT + NAV_BAR_HEIGHT;</span><br><span class="line"><span class="variable"><span class="keyword">var</span> STATUS_BAR_NAV_BAR_TAB_BAR_HEIGHT</span> = STATUS_BAR_NAV_BAR_HEIGHT + TAB_BAR_HEIGHT;</span><br></pre></td></tr></table></figure>
+<p>—&lt;!more&gt;—</p>
+<p>并且在<code>module.exports = {}</code>设置属性</p>
+<figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">screen_width</span>: SCREEN_WIDTH,</span><br><span class="line"><span class="attribute">screen_height</span>: SCREEN_HEIGHT,</span><br><span class="line"><span class="attribute">nav_bar_height</span>: NAV_BAR_HEIGHT,</span><br><span class="line"><span class="attribute">status_bar_height</span>: STATUS_BAR_HEIGHT,</span><br><span class="line"><span class="attribute">tab_bar_height</span>: TAB_BAR_HEIGHT,</span><br><span class="line"><span class="attribute">status_bar_nav_bar_height</span>: STATUS_BAR_NAV_BAR_HEIGHT,</span><br><span class="line"><span class="attribute">bar_height</span>: STATUS_BAR_NAV_BAR_TAB_BAR_HEIGHT,</span><br><span class="line"></span><br><span class="line"><span class="groovy"><span class="string">bg_color:</span><span class="string">'rgb(240,240,240)'</span>,</span><br><span class="line"><span class="string">font_pf_Zhonghei:</span><span class="string">'PingFang-SC-Medium'</span>,</span><br><span class="line"><span class="string">font_pf_Changgui:</span><span class="string">'PingFang-SC-Regular'</span>,</span><br><span class="line"></span><br><span class="line"><span class="string">color_hei_84 :</span><span class="string">'rgba(51,51,51,0.84)'</span>,</span><br><span class="line"><span class="string">color_hei_12 :</span><span class="string">'rgba(51,51,51,0.12)'</span>,</span><br><span class="line"><span class="string">color_hei_24 :</span><span class="string">'rgba(51,51,51,0.24)'</span>,</span><br><span class="line"><span class="string">color_hei_32 :</span><span class="string">'rgba(51,51,51,0.32)'</span>,</span></span><br></pre></td></tr></table></figure>
+<p>#######三. 定义公共组件 和封装思想</p>
+<ol>
+<li>传入参数形式定义–如下</li>
+</ol>
+<figure class="highlight qml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">static defaultProps = &#123;</span><br><span class="line">        <span class="attribute">showPhoto</span>:<span class="attribute">false,</span><br><span class="line">        feekBackStyle</span>:<span class="string">'all'</span>,</span><br><span class="line">        <span class="attribute">btnState</span>:<span class="string">'normol'</span>,</span><br><span class="line">        <span class="attribute">buttonStyle</span>: <span class="string">'center'</span>,</span><br><span class="line">        <span class="attribute">selected</span>:<span class="attribute">false,</span><br><span class="line">        flexStyle</span>: <span class="string">'column'</span>,</span><br><span class="line">        <span class="attribute">titleStyle</span>:&#123;<span class="attribute">color</span>:<span class="string">'#000000'</span>,</span><br><span class="line">            <span class="attribute">fontSize</span>:<span class="number">16</span>,</span><br><span class="line">            <span class="attribute">margin</span>:<span class="number">5</span>,</span><br><span class="line">            <span class="attribute">textAlign</span>:<span class="string">'center'</span>,&#125;,</span><br><span class="line">    &#125;;</span><br></pre></td></tr></table></figure>
+<p>或者</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> defaultProps = &#123;</span><br><span class="line"><span class="symbol">        item:</span> &#123;<span class="string">title:</span> <span class="string">'联系电话'</span>, <span class="string">type:</span> <span class="string">'0'</span>, <span class="string">placeholder:</span> <span class="string">'请输入潜在客户联系电话'</span>, <span class="string">defaultValue:</span> <span class="string">''</span>&#125;<span class="comment">///type 0输入框模式  1 展示模式</span></span><br><span class="line"></span><br><span class="line">    &#125;;</span><br></pre></td></tr></table></figure>
+<p>2.设置本组件属性</p>
+<figure class="highlight delphi"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">constructor</span><span class="params">()</span><span class="comment">&#123;</span><br><span class="line">       super();</span><br><span class="line">       this.state = &#123;</span><br><span class="line">           cellState:'normal',</span><br><span class="line">       &#125;</span>;</span></span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<p>注意：组件属性的变化会引起组建的重新绘制，原理是通过对比来判断是否发生变化，如果变化重新绘制，否则，不变</p>
+<ol>
+<li>方法的定义和调用</li>
+</ol>
+<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">_popSuperVC</span> = <span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.props.navigator.pop()</span><br><span class="line">    &#125;;</span><br></pre></td></tr></table></figure>
+<p> 调用的时候就可以<code>onPress = {this._popSuperVC}</code></p>
+<p>如果方法定义成<br><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">_popSuperVC() &#123;</span><br><span class="line">        <span class="keyword">this</span>.props.navigator.<span class="keyword">pop</span>()</span><br><span class="line">    &#125;;</span><br></pre></td></tr></table></figure></p>
+<p>调用的时候就可以<code>onPress = {this._popSuperVC().bindthis}</code></p>
+<ol>
+<li>组件的绘制，默认属性会在变化时重新绘制</li>
+</ol>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ReactNative/">ReactNative</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/实用知识点/">实用知识点</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-常用正则表达式收集" class="article article-type-post" itemscope itemprop="blogPost">
   

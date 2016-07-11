@@ -6,30 +6,21 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <title>ReactNative之原生应用植入RN | ZKReadStone</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="通过一个简单iOS Demo和介绍iOS应用里植入ReactNative模块的方法，因为官方网站的太过笼统，给当时的我造成了很大的不便。对已有项目，官方推荐用CoCoaPods（一个帮助ios开发人员更方便地管理第三方依赖的工具）进行项目集成，那我们就通过CoCoaPods来集成。
-####准备工作 
-
-iOS项目可以自己随意创建一个，打开Xcode -&amp;gt; Create a new Xcod">
+  <meta name="description" content="通过一个简单iOS Demo和介绍iOS应用里植入ReactNative模块的方法，因为官方网站的太过笼统，给当时的我造成了很大的不便。对已有项目，官方推荐用CoCoaPods（一个帮助ios开发人员更方便地管理第三方依赖的工具）进行项目集成，那我们就通过CoCoaPods来集成。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ReactNative之原生应用植入RN">
 <meta property="og:url" content="http://yoursite.com/2016/07/11/ReactNative之原生应用植入RN/index.html">
 <meta property="og:site_name" content="ZKReadStone">
-<meta property="og:description" content="通过一个简单iOS Demo和介绍iOS应用里植入ReactNative模块的方法，因为官方网站的太过笼统，给当时的我造成了很大的不便。对已有项目，官方推荐用CoCoaPods（一个帮助ios开发人员更方便地管理第三方依赖的工具）进行项目集成，那我们就通过CoCoaPods来集成。
-####准备工作 
-
-iOS项目可以自己随意创建一个，打开Xcode -&amp;gt; Create a new Xcod">
+<meta property="og:description" content="通过一个简单iOS Demo和介绍iOS应用里植入ReactNative模块的方法，因为官方网站的太过笼统，给当时的我造成了很大的不便。对已有项目，官方推荐用CoCoaPods（一个帮助ios开发人员更方便地管理第三方依赖的工具）进行项目集成，那我们就通过CoCoaPods来集成。">
 <meta property="og:image" content="http://7xrqmg.com1.z0.glb.clouddn.com/ReactNative%E6%96%87%E4%BB%B6%E5%A4%B9.tiff">
 <meta property="og:image" content="http://7xrqmg.com1.z0.glb.clouddn.com/ReactNativepackage.json.tiff">
 <meta property="og:image" content="http://7xrqmg.com1.z0.glb.clouddn.com/ReactNativeIndex.ios.js.tiff">
 <meta property="og:image" content="http://7xrqmg.com1.z0.glb.clouddn.com/ReactNativePodfile.tiff">
 <meta property="og:image" content="http://7xrqmg.com1.z0.glb.clouddn.com/ReactNative%E5%B7%A5%E7%A8%8B%E9%85%8D%E7%BD%AE.tiff">
-<meta property="og:updated_time" content="2016-07-11T10:55:08.000Z">
+<meta property="og:updated_time" content="2016-07-11T10:56:39.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ReactNative之原生应用植入RN">
-<meta name="twitter:description" content="通过一个简单iOS Demo和介绍iOS应用里植入ReactNative模块的方法，因为官方网站的太过笼统，给当时的我造成了很大的不便。对已有项目，官方推荐用CoCoaPods（一个帮助ios开发人员更方便地管理第三方依赖的工具）进行项目集成，那我们就通过CoCoaPods来集成。
-####准备工作 
-
-iOS项目可以自己随意创建一个，打开Xcode -&amp;gt; Create a new Xcod">
+<meta name="twitter:description" content="通过一个简单iOS Demo和介绍iOS应用里植入ReactNative模块的方法，因为官方网站的太过笼统，给当时的我造成了很大的不便。对已有项目，官方推荐用CoCoaPods（一个帮助ios开发人员更方便地管理第三方依赖的工具）进行项目集成，那我们就通过CoCoaPods来集成。">
 <meta name="twitter:image" content="http://7xrqmg.com1.z0.glb.clouddn.com/ReactNative%E6%96%87%E4%BB%B6%E5%A4%B9.tiff">
   
     <link rel="alternative" href="/atom.xml" title="ZKReadStone" type="application/atom+xml">
@@ -254,6 +245,7 @@ iOS项目可以自己随意创建一个，打开Xcode -&amp;gt; Create a new Xco
     <div class="article-entry" itemprop="articleBody">
       
         <p>通过一个简单iOS Demo和介绍iOS应用里植入ReactNative模块的方法，因为官方网站的太过笼统，给当时的我造成了很大的不便。对已有项目，官方推荐用CoCoaPods（一个帮助ios开发人员更方便地管理第三方依赖的工具）进行项目集成，那我们就通过CoCoaPods来集成。</p>
+<a id="more"></a>
 <p>####准备工作 </p>
 <ol>
 <li><p>iOS项目<br>可以自己随意创建一个，打开Xcode -&gt; Create a new Xcode project -&gt; Single View Application -&gt; Demo_app</p>

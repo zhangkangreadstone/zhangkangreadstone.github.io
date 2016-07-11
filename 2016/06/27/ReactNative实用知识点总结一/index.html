@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="ZKReadStone">
 <meta property="og:description" content="一. 文件引入import Const from &amp;#39;../macro/const&amp;#39; ‘../‘表示的当前父文件夹，可以·通过../../来表示上层的上层 ，’./‘表示当前文件夹二. 定义公共类属性在公共组件里定义变量
 1234567var SCREEN_WIDTH = Dimensions.get(&apos;window&apos;).width;var SCREEN_HEIGHT = Dimen">
-<meta property="og:updated_time" content="2016-06-27T07:47:03.000Z">
+<meta property="og:updated_time" content="2016-07-08T09:38:25.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ReactNative实用知识点总结一">
 <meta name="twitter:description" content="一. 文件引入import Const from &amp;#39;../macro/const&amp;#39; ‘../‘表示的当前父文件夹，可以·通过../../来表示上层的上层 ，’./‘表示当前文件夹二. 定义公共类属性在公共组件里定义变量
@@ -120,7 +120,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/OC/" style="font-size: 20px;">OC</a> <a href="/tags/ReactNative/" style="font-size: 16.67px;">ReactNative</a> <a href="/tags/RunTime/" style="font-size: 10px;">RunTime</a> <a href="/tags/UI/" style="font-size: 13.33px;">UI</a> <a href="/tags/UITableView/" style="font-size: 16.67px;">UITableView</a> <a href="/tags/实用知识点/" style="font-size: 10px;">实用知识点</a> <a href="/tags/工具/" style="font-size: 10px;">工具</a> <a href="/tags/工具使用/" style="font-size: 10px;">工具使用</a> <a href="/tags/正则/" style="font-size: 10px;">正则</a> <a href="/tags/注意事项/" style="font-size: 10px;">注意事项</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a> <a href="/tags/组件使用/" style="font-size: 13.33px;">组件使用</a> <a href="/tags/贝塞尔/" style="font-size: 13.33px;">贝塞尔</a> <a href="/tags/随笔/" style="font-size: 13.33px;">随笔</a>
+						<a href="/tags/OC/" style="font-size: 20px;">OC</a> <a href="/tags/ReactNative/" style="font-size: 20px;">ReactNative</a> <a href="/tags/RunTime/" style="font-size: 10px;">RunTime</a> <a href="/tags/UI/" style="font-size: 13.33px;">UI</a> <a href="/tags/UITableView/" style="font-size: 16.67px;">UITableView</a> <a href="/tags/实用知识点/" style="font-size: 10px;">实用知识点</a> <a href="/tags/工具/" style="font-size: 10px;">工具</a> <a href="/tags/工具使用/" style="font-size: 10px;">工具使用</a> <a href="/tags/正则/" style="font-size: 10px;">正则</a> <a href="/tags/注意事项/" style="font-size: 10px;">注意事项</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a> <a href="/tags/组件使用/" style="font-size: 13.33px;">组件使用</a> <a href="/tags/贝塞尔/" style="font-size: 13.33px;">贝塞尔</a> <a href="/tags/随笔/" style="font-size: 13.33px;">随笔</a>
 					</div>
 				</section>
 				
@@ -266,6 +266,8 @@
 <ol>
 <li>组件的绘制，默认属性会在变化时重新绘制</li>
 </ol>
+<p>四、 RN下打电话方式</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123;Linking&#125; <span class="keyword">from</span> <span class="string">'react-native'</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">callMe</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> Linking.openURL(<span class="string">'tel:10086'</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -274,6 +276,15 @@
   
     
 <nav id="article-nav">
+  
+    <a href="/2016/07/11/ReactNative之原生应用植入RN/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          ReactNative之原生应用植入RN
+        
+      </div>
+    </a>
   
   
     <a href="/2016/05/13/常用正则表达式收集/" id="article-nav-older" class="article-nav-link-wrap">

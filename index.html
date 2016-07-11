@@ -116,7 +116,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/OC/" style="font-size: 20px;">OC</a> <a href="/tags/ReactNative/" style="font-size: 16.67px;">ReactNative</a> <a href="/tags/RunTime/" style="font-size: 10px;">RunTime</a> <a href="/tags/UI/" style="font-size: 13.33px;">UI</a> <a href="/tags/UITableView/" style="font-size: 16.67px;">UITableView</a> <a href="/tags/实用知识点/" style="font-size: 10px;">实用知识点</a> <a href="/tags/工具/" style="font-size: 10px;">工具</a> <a href="/tags/工具使用/" style="font-size: 10px;">工具使用</a> <a href="/tags/正则/" style="font-size: 10px;">正则</a> <a href="/tags/注意事项/" style="font-size: 10px;">注意事项</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a> <a href="/tags/组件使用/" style="font-size: 13.33px;">组件使用</a> <a href="/tags/贝塞尔/" style="font-size: 13.33px;">贝塞尔</a> <a href="/tags/随笔/" style="font-size: 13.33px;">随笔</a>
+						<a href="/tags/OC/" style="font-size: 20px;">OC</a> <a href="/tags/ReactNative/" style="font-size: 20px;">ReactNative</a> <a href="/tags/RunTime/" style="font-size: 10px;">RunTime</a> <a href="/tags/UI/" style="font-size: 13.33px;">UI</a> <a href="/tags/UITableView/" style="font-size: 16.67px;">UITableView</a> <a href="/tags/实用知识点/" style="font-size: 10px;">实用知识点</a> <a href="/tags/工具/" style="font-size: 10px;">工具</a> <a href="/tags/工具使用/" style="font-size: 10px;">工具使用</a> <a href="/tags/正则/" style="font-size: 10px;">正则</a> <a href="/tags/注意事项/" style="font-size: 10px;">注意事项</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a> <a href="/tags/组件使用/" style="font-size: 13.33px;">组件使用</a> <a href="/tags/贝塞尔/" style="font-size: 13.33px;">贝塞尔</a> <a href="/tags/随笔/" style="font-size: 13.33px;">随笔</a>
 					</div>
 				</section>
 				
@@ -201,6 +201,116 @@
 </nav>
 
       <div class="body-wrap">
+  
+    <article id="post-ReactNative之原生应用植入RN" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/07/11/ReactNative之原生应用植入RN/" class="article-date">
+  	<time datetime="2016-07-11T09:54:16.000Z" itemprop="datePublished">2016-07-11</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/11/ReactNative之原生应用植入RN/">ReactNative之原生应用植入RN</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>通过一个简单iOS Demo和介绍iOS应用里植入ReactNative模块的方法，因为官方网站的太过笼统，给当时的我造成了很大的不便。对已有项目，官方推荐用CoCoaPods（一个帮助ios开发人员更方便地管理第三方依赖的工具）进行项目集成，那我们就通过CoCoaPods来集成。</p>
+<p>####准备工作 </p>
+<ol>
+<li><p>iOS项目<br>可以自己随意创建一个，打开Xcode -&gt; Create a new Xcode project -&gt; Single View Application -&gt; Demo_app</p>
+<ol>
+<li>安装Cocoapods <code>$ gem install cocoapods</code>(已安装的请忽略，如果安装过的可以通过此命令行更新一下Cocoapods版本)</li>
+</ol>
+</li>
+</ol>
+<p>####植入步骤</p>
+<ol>
+<li>添加依赖node_modules文件夹，第一步先在iOS工程根目录下创建一个ReactNative(文件名随意)文件夹，在创建一个package.json文件用于添加依赖，然后执行<code>$ cd reactnative</code> <code>$ npm install</code>安装成功后，会在ReactNative文件夹里面生成node_modules文件夹，这个文件夹里面就是依赖包了。</li>
+<li><img src="http://7xrqmg.com1.z0.glb.clouddn.com/ReactNative%E6%96%87%E4%BB%B6%E5%A4%B9.tiff" alt="Mou icon"><br><img src="http://7xrqmg.com1.z0.glb.clouddn.com/ReactNativepackage.json.tiff" alt="Mou icon"></li>
+<li>创建index.ios.js文件，这一步仍旧在ReactNative文件夹里面创建。内容创建ReactNative工程的那个index.ios.js就能直接拖过来用。并记住组件名称：AppRegistry.registerComponent(‘Demo’, () =&gt; Demo); 名称：Demo<br><img src="http://7xrqmg.com1.z0.glb.clouddn.com/ReactNativeIndex.ios.js.tiff" alt="Mou icon"></li>
+<li>创建Podfile文件，Cocoapods通过解析Podfile指定的工程文件进行依赖安装，我们通过<code>pod init</code>创建Podfile 在<code>target &#39;Demo_app&#39; do</code>和<code>end</code>之间添加工程中需要的依赖，现在咱们暂时只用ReactNative的依赖<br><img src="http://7xrqmg.com1.z0.glb.clouddn.com/ReactNativePodfile.tiff" alt="RN"></li>
+</ol>
+<figure class="highlight sml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">target <span class="symbol">'Demo_app'</span> <span class="keyword">do</span></span><br><span class="line">pod <span class="symbol">'React'</span>, :path =&gt; ‘./<span class="type">ReactNative</span>/node_modules/react-native', :subspecs =&gt; [  </span><br><span class="line">  <span class="symbol">'Core'</span>,</span><br><span class="line">  <span class="symbol">'RCTNetwork'</span>,</span><br><span class="line">  <span class="symbol">'RCTText'</span>,</span><br><span class="line">  <span class="symbol">'RCTWebSocket'</span>,</span><br><span class="line">]</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">target <span class="symbol">'Demo_appTests'</span> <span class="keyword">do</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">target <span class="symbol">'Demo_appUITests'</span> <span class="keyword">do</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+<p>依赖文件安装进入工程目录，执行 <code>$ pod install</code>,这个过程稍微慢点，结束后，工程目录会产生一个 Demo_app.xcworkspace 的工程文件，用Xcode打开Demo_app.xcworkspace文件</p>
+<ol>
+<li>创建继承自UIView的ReactView类(名字随意)<br>修改ReactView.m文件</li>
+</ol>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">#import <span class="meta-string">"ReactView.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#import <span class="meta-string">"RCTRootView.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">ReactView</span></span></span><br><span class="line"></span><br><span class="line">- (instancetype)initWithFrame:(<span class="built_in">CGRect</span>)frame</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">self</span> = [<span class="keyword">super</span> initWithFrame:frame]) &#123;</span><br><span class="line">        <span class="built_in">NSString</span> * strUrl = <span class="string">@"http://localhost:8081/index.ios.bundle?platform=ios&amp;dev=true"</span>;</span><br><span class="line">        <span class="built_in">NSURL</span> * jsCodeLocation = [<span class="built_in">NSURL</span> URLWithString:strUrl];</span><br><span class="line">        </span><br><span class="line">        RCTRootView * rootView = [[RCTRootView alloc] initWithBundleURL:jsCodeLocation</span><br><span class="line">                                                             moduleName:<span class="string">@"Demo"</span></span><br><span class="line">                                                      initialProperties:<span class="literal">nil</span></span><br><span class="line">                                                          launchOptions:<span class="literal">nil</span>];</span><br><span class="line">        </span><br><span class="line">        [<span class="keyword">self</span> addSubview:rootView];</span><br><span class="line">        </span><br><span class="line">        rootView.frame = <span class="keyword">self</span>.bounds;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">self</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
+<p>ReactView.m 中通过 <a href="http://localhost:8081/index.ios.bundle?platform=ios&amp;dev=true" target="_blank" rel="external">http://localhost:8081/index.ios.bundle?platform=ios&amp;dev=true</a> 加载bundle文件，由RCTRootView解析转化原生的UIView，然后通过initWithFrame将frame暴露出去。</p>
+<p>然后使用</p>
+<pre><code>#import &quot;ViewController.h&quot;
+#import &quot;ReactView.h&quot;
+
+@interface ViewController ()
+
+@property (weak, nonatomic) IBOutlet ReactView *reactView;
+
+@end
+
+@implementation ViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view, typically from a nib.
+    ReactView * reactView = [[ReactView alloc] initWithFrame:CGRectMake(0, 40, CGRectGetWidth(self.view.bounds), 100)];
+
+    [self.view addSubview:reactView];
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+@end
+</code></pre><p>####启动服务器之前更改Info.Plist设置</p>
+<p>在iOS 9以上的系统中，除非明确指明，否则应用无法通过http协议连接到localhost主机。 我们建议你在Info.plist文件中将localhost列为App Transport Security的例外。 如果不这样做，在尝试通过http连接到服务器时，会遭遇这个错误 - Could not connect to development server.</p>
+<p>打开工程中的 Info.list 文件，添加下面配置即可：<br>如图：<br><img src="http://7xrqmg.com1.z0.glb.clouddn.com/ReactNative%E5%B7%A5%E7%A8%8B%E9%85%8D%E7%BD%AE.tiff" alt="RN"></p>
+<p>####启动服务器</p>
+<p>通过命令行<code>cd Desk/Demo_app/ReactNative/</code> <code>react-native start</code></p>
+<h4 id="运行项目"><a href="#运行项目" class="headerlink" title="运行项目"></a>运行项目</h4>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ReactNative/">ReactNative</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-ReactNative实用知识点总结一" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -1071,66 +1181,10 @@
 
 
   
-    <article id="post-渐变图层和插值曲线" class="article article-type-post" itemscope itemprop="blogPost">
   
-    <div class="article-meta">
-      <a href="/2016/03/10/渐变图层和插值曲线/" class="article-date">
-  	<time datetime="2016-03-10T15:37:19.000Z" itemprop="datePublished">2016-03-10</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/10/渐变图层和插值曲线/">渐变图层和插值曲线</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>渐变图层通常与插值贝塞尔曲线混合使用来绘制各种变化曲线</p>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/UI/">UI</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/贝塞尔/">贝塞尔</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/03/10/渐变图层和插值曲线/#more">阅读全文 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
+    <nav id="page-nav">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+    </nav>
   
 </div>
       <footer id="footer">

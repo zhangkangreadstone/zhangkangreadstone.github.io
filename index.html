@@ -202,6 +202,96 @@
 
       <div class="body-wrap">
   
+    <article id="post-NSNumber和NSInteger" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/07/21/NSNumber和NSInteger/" class="article-date">
+  	<time datetime="2016-07-21T09:38:13.000Z" itemprop="datePublished">2016-07-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/21/NSNumber和NSInteger/">NSNumber和NSInteger</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Objective-C 支持的类型有两种：基本类型 和  类。</p>
+<p>基本类型，如同C 语言中的 int 类型一样，拿来就可以直接用。 而类在使用时，必须先创建一个对象，再为对象分配空间，接着做初始化和赋值。 类的初始化，需用类自身的方法 （类方法）。 代码中所创建的对象，不用后，还得记着释放。</p>
+<p>做了这么多铺垫， 具体到 NSNumber 和 NSInteger ，又怎样呢？</p>
+<p>NSNumber 是类， 而 NSInteger 只不过是个 基本类型。</p>
+<p>既然 NSInteger是基本类型，那么，使用起来就非常简单。 声明一个变量， NSInteger myInt；  直接赋值就可以了。 比如： myInt=8；<br>谈到“类”，总是给人以抽象的感觉。像NSNumber 这个类型，从字面上看，它属于char、int、long、double 中的哪一种呢？ 其实，NSNumber 可以隶属其中的任意一种类型。 这就是“类”的强大 —— 抽象，而且内嵌多种方法（method）。</p>
+<p>既然NSNumber 是类，就应该遵循“类”的规则。 通过类方法来创建、初始化一个类的对象。</p>
+<p>NSNumber 所拥有的类方法，如下：</p>
+<ul>
+<li><p>(NSNumber*)numberWithChar: (char)value;</p>
+</li>
+<li><p>(NSNumber*)numberWithInt: (int)value;</p>
+</li>
+<li><p>(NSNumber*)numberWithFloat: (float)value;</p>
+</li>
+<li><p>(NSNumber*)numberWithBool: (BOOL) value;</p>
+</li>
+</ul>
+<p>NSNumber <em>myNumber,</em>floatnumber,<em>intNumber,</em>doublenumber,*charNumber;</p>
+<p>myNumber = [NSNumber numberWithLong:0xabcdef];<br>        floatnumber = [NSNumber numberWithFloat:12.33];<br>        intNumber = [NSNumber numberWithInt:100];<br>       doublenumber = [NSNumber numberWithDouble:12345e+15];<br>       charNumber = [NSNumber numberWithChar:’X’];</p>
+<p>将基本类型数据封装到NSNumber中后，就可以通过下面的实例方法重新获取它：</p>
+<ul>
+<li><p>(char)charValue;</p>
+</li>
+<li><p>(int)intValue;</p>
+</li>
+<li><p>(float)floatValue;</p>
+</li>
+<li><p>(BOOL)boolValue;</p>
+</li>
+<li><p>(NSString*)stringValue;</p>
+</li>
+</ul>
+<p>myInt = [intNumber intValue]; //获取对象的整型值<br>      //[floatnumber floatValue];<br>      //[doublenumber doubleValue];<br>      //[charNumber charValue]；</p>
+<p>有了以上概念，我们来考一个面试题。 以下code 编译是否有误？</p>
+<figure class="highlight hsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">NSMutableArray  *myArray = [[NSMutableArray <span class="keyword">alloc</span>] init ]<span class="comment">;</span></span><br><span class="line"></span><br><span class="line">[myArray addObject: <span class="number">6</span> ]<span class="comment">;</span></span><br></pre></td></tr></table></figure>
+<p>这样是会引发编译错误的，因为NSMutableArray中所要存放的是一个对象，但‘6’不是。这怎么办呢？ 需要用到 NSNumber。</p>
+<figure class="highlight hsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">NSMutableArray  *myArray = [[NSMutableArray <span class="keyword">alloc</span>] init ]<span class="comment">;</span></span><br><span class="line"></span><br><span class="line">[myArray addObject: [NSNumber numberWithInt:<span class="number">6</span>] ]<span class="comment">;</span></span><br><span class="line"></span><br><span class="line">NSLog(@<span class="string">"array content is %@"</span>, myArray)<span class="comment">;</span></span><br></pre></td></tr></table></figure>
+<p>文章转载自：<a href="http://leopard168.blog.163.com/blog/static/168471844201381793246514/" target="_blank" rel="external">http://leopard168.blog.163.com/blog/static/168471844201381793246514/</a></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-ReactNative之原生应用植入RN" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -1053,66 +1143,6 @@
       
         <p class="article-more-link">
           <a  href="/2016/03/15/贝塞尔曲线及简单使用/#more">阅读全文 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-我的2016-年" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/03/12/我的2016-年/" class="article-date">
-  	<time datetime="2016-03-12T15:21:57.000Z" itemprop="datePublished">2016-03-12</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/12/我的2016-年/">我的2016年</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>—-2016年，我入行的第三个年头，感悟颇深，有苦有泪，也有欣慰和快乐。在这么长的时间里，我一直在努力，虽然没能成为大牛，不过一直以来的努力还是有所收获的，一直以来，我都坚信聪明只是一种工具，努力是最实现它价值的最好的方式。</p>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/随笔/">随笔</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/03/12/我的2016-年/#more">阅读全文 >></a>
         </p>
       
       <div class="clearfix"></div>

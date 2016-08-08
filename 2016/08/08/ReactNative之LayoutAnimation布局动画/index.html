@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="ZKReadStone">
 <meta property="og:description" content="React Native 之LayoutAnimation布局动画(Android/iOS通用)
 该模块用于当试图的布局发生变化的时候，自动将该试图运行到新的位置。一个比较通用的使用方法为:在调用setState方法之前调用LayoutAnimation.configureNext()方法进行使用。">
-<meta property="og:updated_time" content="2016-08-08T11:07:27.000Z">
+<meta property="og:updated_time" content="2016-08-08T11:10:18.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ReactNative之LayoutAnimation布局动画">
 <meta name="twitter:description" content="React Native 之LayoutAnimation布局动画(Android/iOS通用)
@@ -244,13 +244,13 @@
         <p>React Native 之LayoutAnimation布局动画(Android/iOS通用)</p>
 <p>该模块用于当试图的布局发生变化的时候，自动将该试图运行到新的位置。一个比较通用的使用方法为:在调用setState方法之前调用LayoutAnimation.configureNext()方法进行使用。</p>
 <a id="more"></a>
-<h4 id="二、常用方法"><a href="#二、常用方法" class="headerlink" title="二、常用方法"></a>二、常用方法</h4><p>@参数config   该涉及到动画属性有:</p>
+<p>####二、常用方法<br>@参数config   该涉及到动画属性有:</p>
 <ol>
 <li>duration   动画持续的时间(毫秒)</li>
 <li>create     创建一个新视图所使用的动画(具体可以查看Anim类型)</li>
 <li>update   当视图被更新的时候所使用的动画(具体可以查看Anim类型)<br>@参数 onAnimationDidEnd  当动画完成的时候调用的方法，当前仅支持iOS设备<br>@参数 onError  当动画发生错误的时候调用的方法,当前仅支持iOS设备<br>2.2.create(duration,type,createionProp)  静态方法   该用来创建configureNext的方法</li>
 </ol>
-<h4 id="三、相关属性"><a href="#三、相关属性" class="headerlink" title="三、相关属性"></a>三、相关属性</h4><p>3.1.Types:动画类型 (主要涉及:spring,linear,easeInEaseOut,easeIn,easeOut,keyboard)<br>3.2.Properties:属性(主要涉及:opacity,scaleXY)<br>3.4.configChecker:配置检查器<br>3.5.Presets:对象类型(动画效果默认配置项)<br>3.6.easeInEaseOut<br>3.7.linear<br>3.8.spring<br>有关更多属性详细介绍可以查看:LayoutAnimation.js</p>
+<p>####三、相关属性<br>3.1.Types:动画类型 (主要涉及:spring,linear,easeInEaseOut,easeIn,easeOut,keyboard)<br>3.2.Properties:属性(主要涉及:opacity,scaleXY)<br>3.4.configChecker:配置检查器<br>3.5.Presets:对象类型(动画效果默认配置项)<br>3.6.easeInEaseOut<br>3.7.linear<br>3.8.spring<br>有关更多属性详细介绍可以查看:LayoutAnimation.js</p>
 <p>【注意】LayoutAnimation只对于布局的创建和更新事件才起作用，然而删除事件是不支持的。LayoutAnimation有以下三种动画效果类型:<br>caseInEaseOut<br>linear<br>spring</p>
 <p>####(四)使用实例<br>上面我们已经完成了基本内容的介绍讲解，下面我们通过一个实例添加以及删除View视图的动画效果。<br>[注意].如果你在Android设备上面进行测试，那么就需要开启动画设置，iOS设备默认打开。具体代码如下:<br>// Enable LayoutAnimation under Android<br>     if (Platform.OS === ‘android’) {<br>        UIManager.setLayoutAnimationEnabledExperimental(true)<br>      }</p>
 <p>////自定义的动画类型<br>var CustomLayoutAnimation = {<br>    duration: 800,<br>    create: {<br>      type: LayoutAnimation.Types.linear,<br>      property: LayoutAnimation.Properties.opacity,<br>    },<br>    update: {<br>      type: LayoutAnimation.Types.easeInEaseOut,<br>    },<br>  };</p>

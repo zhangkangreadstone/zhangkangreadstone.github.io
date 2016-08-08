@@ -4,17 +4,21 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>Archives: 2016/5 | ZKReadStone</title>
+  <title>ReactNative之LayoutAnimation布局动画 | ZKReadStone</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="邮箱：zhangkangreadstone@163.com">
-<meta property="og:type" content="website">
-<meta property="og:title" content="ZKReadStone">
-<meta property="og:url" content="http://yoursite.com/archives/2016/05/index.html">
+  <meta name="description" content="React Native 之LayoutAnimation布局动画(Android/iOS通用)
+该模块用于当试图的布局发生变化的时候，自动将该试图运行到新的位置。一个比较通用的使用方法为:在调用setState方法之前调用LayoutAnimation.configureNext()方法进行使用。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ReactNative之LayoutAnimation布局动画">
+<meta property="og:url" content="http://yoursite.com/2016/08/08/ReactNative之LayoutAnimation布局动画/index.html">
 <meta property="og:site_name" content="ZKReadStone">
-<meta property="og:description" content="邮箱：zhangkangreadstone@163.com">
+<meta property="og:description" content="React Native 之LayoutAnimation布局动画(Android/iOS通用)
+该模块用于当试图的布局发生变化的时候，自动将该试图运行到新的位置。一个比较通用的使用方法为:在调用setState方法之前调用LayoutAnimation.configureNext()方法进行使用。">
+<meta property="og:updated_time" content="2016-08-08T10:56:25.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ZKReadStone">
-<meta name="twitter:description" content="邮箱：zhangkangreadstone@163.com">
+<meta name="twitter:title" content="ReactNative之LayoutAnimation布局动画">
+<meta name="twitter:description" content="React Native 之LayoutAnimation布局动画(Android/iOS通用)
+该模块用于当试图的布局发生变化的时候，自动将该试图运行到新的位置。一个比较通用的使用方法为:在调用setState方法之前调用LayoutAnimation.configureNext()方法进行使用。">
   
     <link rel="alternative" href="/atom.xml" title="ZKReadStone" type="application/atom+xml">
   
@@ -200,53 +204,133 @@
 	</div>
 </nav>
 
-      <div class="body-wrap">
+      <div class="body-wrap"><article id="post-ReactNative之LayoutAnimation布局动画" class="article article-type-post" itemscope itemprop="blogPost">
   
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/05/13/常用正则表达式收集/" class="archive-article-date">
-  	<time datetime="2016-05-13T03:48:46.000Z" itemprop="datePublished">May 13</time>
+    <div class="article-meta">
+      <a href="/2016/08/08/ReactNative之LayoutAnimation布局动画/" class="article-date">
+  	<time datetime="2016-08-08T10:46:44.000Z" itemprop="datePublished">2016-08-08</time>
 </a>
-        </div>
-    	 
+    </div>
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/05/13/常用正则表达式收集/">常用正则表达式收集</a>
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      ReactNative之LayoutAnimation布局动画
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+      </header>
+      
+      <div class="article-info article-info-post">
+        
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/工具/">工具</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/正则/">正则</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ReactNative/">--ReactNative</a></li></ul>
 	</div>
 
-          
+        
 
-        </div>
         <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
+      </div>
+      
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>React Native 之LayoutAnimation布局动画(Android/iOS通用)</p>
+<p>该模块用于当试图的布局发生变化的时候，自动将该试图运行到新的位置。一个比较通用的使用方法为:在调用setState方法之前调用LayoutAnimation.configureNext()方法进行使用。</p>
+<a id="more"></a>
+<p>####(二)常用方法<br>@参数config   该涉及到动画属性有:</p>
+<ol>
+<li>duration   动画持续的时间(毫秒)</li>
+<li>create     创建一个新视图所使用的动画(具体可以查看Anim类型)</li>
+<li>update   当视图被更新的时候所使用的动画(具体可以查看Anim类型)<br>@参数 onAnimationDidEnd  当动画完成的时候调用的方法，当前仅支持iOS设备<br>@参数 onError  当动画发生错误的时候调用的方法,当前仅支持iOS设备<br>2.2.create(duration,type,createionProp)  静态方法   该用来创建configureNext的方法</li>
+</ol>
+<p>####(三)相关属性<br>3.1.Types:动画类型 (主要涉及:spring,linear,easeInEaseOut,easeIn,easeOut,keyboard)<br>3.2.Properties:属性(主要涉及:opacity,scaleXY)<br>3.4.configChecker:配置检查器<br>3.5.Presets:对象类型(动画效果默认配置项)<br>3.6.easeInEaseOut<br>3.7.linear<br>3.8.spring<br>有关更多属性详细介绍可以查看:LayoutAnimation.js</p>
+<p>【注意】LayoutAnimation只对于布局的创建和更新事件才起作用，然而删除事件是不支持的。LayoutAnimation有以下三种动画效果类型:<br>caseInEaseOut<br>linear<br>spring</p>
+<p>####(四)使用实例<br>上面我们已经完成了基本内容的介绍讲解，下面我们通过一个实例添加以及删除View视图的动画效果。<br>[注意].如果你在Android设备上面进行测试，那么就需要开启动画设置，iOS设备默认打开。具体代码如下:<br>// Enable LayoutAnimation under Android<br>     if (Platform.OS === ‘android’) {<br>        UIManager.setLayoutAnimationEnabledExperimental(true)<br>      }</p>
+<p>////自定义的动画类型<br>var CustomLayoutAnimation = {<br>    duration: 800,<br>    create: {<br>      type: LayoutAnimation.Types.linear,<br>      property: LayoutAnimation.Properties.opacity,<br>    },<br>    update: {<br>      type: LayoutAnimation.Types.easeInEaseOut,<br>    },<br>  };</p>
+<p>////在componentWillUpdate方法里或者指定的响应方法里<br> componentWillUpdate() {<br>      console.log(‘componentWillUpdate…’);<br>      LayoutAnimation.easeInEaseOut();////系统效果淡入淡出<br>      //或者可以使用如下的自定义的动画效果<br>      //LayoutAnimation.configureNext(CustomLayoutAnimation);<br>    }</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/07/21/NSNumber和NSInteger/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">NSNumber和NSInteger</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+<div class="share_addthis">
+  <div class="sharing addthis_toolbox share">
+    <a class="addthis_button_facebook_like"></a>
+    <a class="addthis_button_tweet"></a>
+    <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+    <a class="addthis_counter addthis_pill_style"></a>
+  </div>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-560c64c35486b3d4" async="async"></script>
+</div>
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="ReactNative之LayoutAnimation布局动画" data-title="ReactNative之LayoutAnimation布局动画" data-url="http://yoursite.com/2016/08/08/ReactNative之LayoutAnimation布局动画/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0]
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
 
 </div>
       <footer id="footer">
@@ -272,8 +356,8 @@
 		mathjax: true,
 		animate: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false
